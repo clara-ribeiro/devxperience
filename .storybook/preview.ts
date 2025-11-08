@@ -14,6 +14,10 @@ const preview: Preview = {
 				date: /Date$/i,
 			},
 		},
+		// Enable the Interactions panel debugger
+		features: {
+			interactionsDebugger: true,
+		},
 		a11y: {
 			element: "#root",
 			manual: false,

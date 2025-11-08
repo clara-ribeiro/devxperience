@@ -10,7 +10,6 @@ const config: StorybookConfig = {
 		// Exclude Chromatic preset during Vitest runs to avoid ESM/CJS loader issues
 		...(process.env.VITEST ? [] as string[] : ["@chromatic-com/storybook"]),
 		"@storybook/addon-docs",
-		"@storybook/addon-onboarding",
 		"@storybook/addon-a11y",
 		"@storybook/addon-vitest",
 	],
