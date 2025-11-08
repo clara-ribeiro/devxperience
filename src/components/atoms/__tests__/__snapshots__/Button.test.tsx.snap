@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button (snapshot markup) > matches snapshot 1`] = `
+<button
+  class="c-loGDgT c-loGDgT-bTKHxV-size-lg"
+>
+  Snapshot
+</button>
+`;
