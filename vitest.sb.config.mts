@@ -10,10 +10,10 @@ const dirname =
 const useBrowser = process.env.STORYBOOK_BROWSER === '1' || process.env.STORYBOOK_BROWSER === 'true';
 
 export default defineConfig({
+  plugins: [
+    storybookTest({ configDir: path.join(dirname, '.storybook') }),
+  ],
   test: {
-    plugins: [
-      storybookTest({ configDir: path.join(dirname, '.storybook') }),
-    ],
     environment: 'jsdom',
     setupFiles: ['.storybook/vitest.setup.ts'],
     browser: {
