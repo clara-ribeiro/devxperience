@@ -16,7 +16,7 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        Aguarde.<br/>sse site está em construção...
+        Aguarde.<br/>Esse site está em construção...
       </h1>
     </main>
   );
