@@ -1,7 +1,11 @@
 import { styled, darkTheme } from "@/styles/stitches.config";
 import Link from "next/link";
 
-const devModeHighlightStyles = {
+/**
+ * Estilos compartilhados para elementos instrumentados com Dev Mode.
+ * Aplicados quando `data-devmode-highlight='true'` e o elemento está em hover/focus.
+ */
+export const devModeHighlightStyles = {
   cursor: "help",
   outline: "1px dashed rgba(173, 69, 40, 0.4)",
   outlineOffset: "3px",
