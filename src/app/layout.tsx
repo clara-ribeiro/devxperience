@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Raleway, Josefin_Slab } from "next/font/google";
 import "./globals.css";
 import { globalStyles, darkTheme } from "@/styles/stitches.config";
-import Header from "@/components/organisms/Header";
 import { ThemeProvider } from "@/context/theme-context";
+import { DevModeProvider } from "@/context/dev-mode-context";
+import Header from "@/components/organisms/Header";
 import StitchesRegistry from "./stitches-registry";
 
 const raleway = Raleway({
@@ -52,8 +53,10 @@ export default function RootLayout({
       <body suppressHydrationWarning className={`${raleway.variable} ${josefinSlab.variable}`}>
         <StitchesRegistry>
           <ThemeProvider>
+            <DevModeProvider>
             <Header />
             <main role="main">{children}</main>
+            </DevModeProvider>
           </ThemeProvider>
         </StitchesRegistry>
       </body>

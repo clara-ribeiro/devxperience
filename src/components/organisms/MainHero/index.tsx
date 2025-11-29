@@ -17,9 +17,11 @@ import {
   FoxWrapper,
 } from "./styles";
 import Button from "@/components/atoms/Button";
+import { useDevMode } from "@/context/dev-mode-context";
 
 const MainHero: React.FC = () => {
   const { isDark } = useTheme();
+  const { isDevMode, toggleDevMode } = useDevMode();
 
   const primaryButtonColors = React.useMemo(
     () =>
@@ -61,9 +63,11 @@ const MainHero: React.FC = () => {
           <Actions>
             <Button
               type="button"
-              label="Modo Dev"
+              label={isDevMode ? "Modo Dev Ativado" : "Modo Dev"}
               variant="solid"
               colors={primaryButtonColors}
+              onClick={() => toggleDevMode("hero-cta")}
+              aria-pressed={isDevMode}
             />
             <Button
               type="button"

@@ -1,6 +1,14 @@
 import { styled, darkTheme } from "@/styles/stitches.config";
 import Link from "next/link";
 
+const devModeHighlightStyles = {
+  cursor: "help",
+  outline: "1px dashed rgba(173, 69, 40, 0.4)",
+  outlineOffset: "3px",
+  backgroundColor: "rgba(173, 69, 40, 0.08)",
+  borderRadius: "0.75rem",
+};
+
 export const Bar = styled("header", {
   backgroundColor: "$headerBgLight",
   borderBottom: "1px solid $border",
@@ -18,6 +26,11 @@ export const Bar = styled("header", {
   [`.${darkTheme} &`]: {
     backgroundColor: "$headerBgDark",
     borderBottom: "1px solid rgba(231,193,154,0.25)",
+  },
+  "&[data-devmode-highlight='true']:hover": {
+    outline: devModeHighlightStyles.outline,
+    outlineOffset: devModeHighlightStyles.outlineOffset,
+    cursor: devModeHighlightStyles.cursor,
   },
 });
 
@@ -83,6 +96,9 @@ export const NavLink = styled(Link, {
       color: "$headerItemSelectedDark",
     },
   },
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-visible": {
+    ...devModeHighlightStyles,
+  },
 });
 
 export const CenterLogo = styled("div", {
@@ -92,6 +108,21 @@ export const CenterLogo = styled("div", {
   gridArea: "logo",
   "@lg": {
     justifyContent: "center",
+  },
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
+  },
+});
+
+export const LogoLink = styled(Link, {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "4.5rem",
+  height: "auto",
+  borderRadius: devModeHighlightStyles.borderRadius,
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-visible": {
+    ...devModeHighlightStyles,
   },
 });
 
@@ -116,7 +147,7 @@ export const IconButton = styled("button", {
   padding: 0,
   minWidth: "2.44rem", // ~44px
   minHeight: "2.44rem",
-  cursor: "pointer",
+  cursor: "inherit",
   lineHeight: 0,
   color: "inherit",
   "&:focus-visible": {
@@ -143,6 +174,18 @@ export const DesktopOnly = styled("div", {
     display: "inline-flex",
     alignItems: "center",
     gap: "2rem",
+  },
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
+    outlineOffset: "4px",
+  },
+});
+
+export const ThemeToggleWrapper = styled("div", {
+  display: "inline-flex",
+  alignItems: "center",
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
   },
 });
 
