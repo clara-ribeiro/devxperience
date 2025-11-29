@@ -1,5 +1,5 @@
 import { styled } from "@/styles/stitches.config";
-import { devModeHighlightStyles } from "@/components/organisms/Header/styles";
+import { devModeHighlightStyles } from "@/styles/dev-mode.styles";
 
 export const StyledThemeToggleWrapper = styled("div", {
   display: "inline-flex",

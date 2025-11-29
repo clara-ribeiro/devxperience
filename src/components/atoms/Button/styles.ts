@@ -1,5 +1,6 @@
 import { styled } from "@/styles/stitches.config";
 import type { VariantProps } from "@stitches/react";
+import { devModeHighlightStyles } from "@/styles/dev-mode.styles";
 
 export const StyledButton = styled("button", {
   display: "inline-flex",
@@ -41,6 +42,9 @@ export const StyledButton = styled("button", {
   },
   defaultVariants: {
     variant: "solid",
+  },
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-visible": {
+    ...devModeHighlightStyles,
   },
 });
 

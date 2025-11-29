@@ -1,6 +1,6 @@
 import { styled, darkTheme } from "@/styles/stitches.config";
 import Link from "next/link";
-import { devModeHighlightStyles } from "@/components/organisms/Header/styles";
+import { devModeHighlightStyles } from "@/styles/dev-mode.styles";
 
 export const StyledNavLink = styled(Link, {
   color: "$headerItemUnselectedLight",

@@ -1,6 +1,6 @@
 import { styled } from "@/styles/stitches.config";
 import Link from "next/link";
-import { devModeHighlightStyles } from "@/components/organisms/Header/styles";
+import { devModeHighlightStyles } from "@/styles/dev-mode.styles";
 
 export const StyledLogoLink = styled(Link, {
   display: "inline-flex",
