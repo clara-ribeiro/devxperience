@@ -2,11 +2,22 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { within } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
 import Header from "./index";
+import { DevModeProvider } from "@/context/dev-mode-context";
+import { ThemeProvider } from "@/context/theme-context";
 
 const meta: Meta<typeof Header> = {
   title: "Organisms/Header",
   component: Header,
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <ThemeProvider>
+        <DevModeProvider>
+          <Story />
+        </DevModeProvider>
+      </ThemeProvider>
+    ),
+  ],
   parameters: {
     layout: "fullscreen",
     a11y: {
@@ -68,3 +79,13 @@ export const Accessible: Story = {
   },
 };
 
+export const WithCustomLinks: Story = {
+  name: "Header com links customizados",
+  args: {
+    links: [
+      { href: "/sobre", label: "Sobre" },
+      { href: "/contato", label: "Contato" },
+      { href: "/blog", label: "Blog" },
+    ],
+  },
+};
