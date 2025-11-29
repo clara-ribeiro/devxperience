@@ -1,0 +1,27 @@
+import React from "react";
+
+export const LightModeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <g clipPath="url(#clip0_4265_7839)">
+      <path d="M22.0001 26.2813C24.3647 26.2813 26.2815 24.3644 26.2815 21.9999C26.2815 19.6354 24.3647 17.7185 22.0001 17.7185C19.6356 17.7185 17.7188 19.6354 17.7188 21.9999C17.7188 24.3644 19.6356 26.2813 22.0001 26.2813Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M22 8.07141V10.2143" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M22 33.7856V35.9285" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M35.928 22H33.7852" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M10.2141 22H8.07129" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M31.8574 12.1426L30.3359 13.664" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M13.664 30.3354L12.1426 31.8569" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M31.8574 31.8569L30.3359 30.3354" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M13.664 13.664L12.1426 12.1426" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+    </g>
+    <circle cx="22" cy="22" r="21.5" stroke="currentColor"/>
+    <defs>
+      <clipPath id="clip0_4265_7839">
+        <rect width="30" height="30" fill="white" transform="translate(7 7)"/>
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+export default LightModeIcon;
+
+
