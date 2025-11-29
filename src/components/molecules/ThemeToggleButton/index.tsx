@@ -60,8 +60,8 @@ export const ThemeToggleButton: React.FC<ThemeToggleButtonProps> = ({
       >
         <IconButton
           icon={isDark ? <LightModeIcon /> : <DarkModeIcon />}
-          ariaLabel={ariaLabel || defaultAriaLabel}
-          title={title || defaultTitle}
+          ariaLabel={isDevMode ? undefined : (ariaLabel || defaultAriaLabel)}
+          title={isDevMode ? undefined : (title || defaultTitle)}
           onClick={handleClick}
           style={{ cursor: themeToggleInteraction.getCursor() }}
         />

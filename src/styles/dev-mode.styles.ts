@@ -6,7 +6,6 @@ export const devModeHighlightStyles = {
   cursor: "help",
   outline: "1px dashed rgba(173, 69, 40, 0.4)",
   outlineOffset: "3px",
-  backgroundColor: "rgba(173, 69, 40, 0.08)",
-  borderRadius: "0.75rem",
+  backgroundColor: "rgba(173, 69, 40, 0.4)",
 };
 

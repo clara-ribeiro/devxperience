@@ -21,6 +21,7 @@ export const useDevModeInteraction = (metadata: DevModeMetadata | null) => {
         text: metadata.title,
         x: rect.left + rect.width / 2,
         y: rect.bottom,
+        elementRect: rect,
       });
     },
     [isDevMode, metadata, showTooltip],

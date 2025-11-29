@@ -42,7 +42,7 @@ export const LogoLink: React.FC<LogoLinkProps> = ({
     return (
       <StyledLogoLink
         href={href}
-        aria-label={ariaLabel}
+        aria-label={isDevMode ? undefined : ariaLabel}
         onClick={handleClick}
         data-devmode-highlight={isDevMode ? "true" : undefined}
         data-devmode-target={metadata.target}

@@ -19,6 +19,7 @@ type TooltipPayload = {
   text: string;
   x: number;
   y: number;
+  elementRect?: DOMRect;
 };
 
 type DevModeContextValue = {
@@ -171,12 +172,92 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
     }
   }, [enabled, trigger]);
 
+  const renderOverlay = () => {
+    if (!isHydrated || !enabled || !tooltip || !tooltip.elementRect || typeof document === "undefined") {
+      return null;
+    }
+
+    const rect = tooltip.elementRect;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const padding = 3; // Margem padrão de 3px ao redor do elemento
+
+    // Calcular posições com padding de 3px
+    const topStart = Math.max(0, rect.top - padding);
+    const leftStart = Math.max(0, rect.left - padding);
+    const rightStart = Math.min(windowWidth, rect.right + padding);
+    const bottomStart = Math.min(windowHeight, rect.bottom + padding);
+
+    return createPortal(
+      <FocusOverlay>
+        {/* Top overlay */}
+        {topStart > 0 && (
+          <OverlaySection
+            style={{
+              top: 0,
+              left: 0,
+              right: 0,
+              height: `${topStart}px`,
+            }}
+          />
+        )}
+        {/* Right overlay */}
+        {rightStart < windowWidth && (
+          <OverlaySection
+            style={{
+              top: `${topStart}px`,
+              left: `${rightStart}px`,
+              right: 0,
+              height: `${bottomStart - topStart}px`,
+            }}
+          />
+        )}
+        {/* Bottom overlay */}
+        {bottomStart < windowHeight && (
+          <OverlaySection
+            style={{
+              top: `${bottomStart}px`,
+              left: 0,
+              right: 0,
+              height: `${windowHeight - bottomStart}px`,
+            }}
+          />
+        )}
+        {/* Left overlay */}
+        {leftStart > 0 && (
+          <OverlaySection
+            style={{
+              top: `${topStart}px`,
+              left: 0,
+              width: `${leftStart}px`,
+              height: `${bottomStart - topStart}px`,
+            }}
+          />
+        )}
+      </FocusOverlay>,
+      document.body,
+    );
+  };
+
   const renderTooltip = () => {
     if (!isHydrated || !enabled || !tooltip || typeof document === "undefined") {
       return null;
     }
+    
+    // Calcular se o tooltip vai ser cortado na borda direita
+    // Estimativa: ~10px por caractere + padding
+    const estimatedTooltipWidth = tooltip.text.length * 8 + 40;
+    const windowWidth = window.innerWidth;
+    const spaceOnRight = windowWidth - tooltip.x;
+    const shouldFlip = spaceOnRight < estimatedTooltipWidth;
+    
+    // Se estiver próximo da borda direita, posicionar à esquerda do cursor
+    const transform = shouldFlip 
+      ? "translate(calc(-100% - 8px), -50%)" // À esquerda do cursor com margem
+      : "translate(10%, -20%)";  // À direita do cursor (padrão)
+    
     return createPortal(
-      <TooltipContainer style={{ left: `${tooltip.x}px`, top: `${tooltip.y}px` }} role="status">
+      <TooltipContainer style={{ left: `${tooltip.x}px`, top: `${tooltip.y}px`, transform }} role="status">
         {tooltip.text}
       </TooltipContainer>,
       document.body,
@@ -232,6 +313,7 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
   return (
     <DevModeContext.Provider value={value}>
       {children}
+      {renderOverlay()}
       {renderTooltip()}
       {renderModal()}
     </DevModeContext.Provider>
@@ -246,10 +328,21 @@ export const useDevMode = () => {
   return context;
 };
 
+const FocusOverlay = styled("div", {
+  position: "fixed",
+  inset: 0,
+  pointerEvents: "none",
+  zIndex: 1400,
+});
+
+const OverlaySection = styled("div", {
+  position: "absolute",
+  backgroundColor: "rgba(0, 0, 0, 0.6)",
+  transition: "opacity 0.2s ease",
+});
+
 const TooltipContainer = styled("div", {
   position: "fixed",
-  transform: "translate(-50%, 120%)",
-  marginTop: "0.5rem",
   padding: "0.33rem 0.67rem",
   fontSize: "0.78rem",
   fontWeight: 600,

@@ -49,7 +49,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
   return (
     <StyledNavLink
       href={href}
-      aria-label={ariaLabel}
+      aria-label={isDevMode && metadata ? undefined : ariaLabel}
       data-selected={selected}
       aria-current={selected ? "page" : undefined}
       data-devmode-target={metadata?.target}

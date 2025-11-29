@@ -35,8 +35,8 @@ export const DevModeToggleButton: React.FC<DevModeToggleButtonProps> = ({
   return (
     <IconButton
       icon={<DevModeIcon {...(devModeIconColors ?? {})} />}
-      ariaLabel={ariaLabel || defaultAriaLabel}
-      title={title || defaultTitle}
+      ariaLabel={isDevMode ? undefined : (ariaLabel || defaultAriaLabel)}
+      title={isDevMode ? undefined : (title || defaultTitle)}
       ariaPressed={isDevMode}
       onClick={() => {
         toggleDevMode(trigger);

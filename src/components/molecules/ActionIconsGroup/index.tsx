@@ -52,8 +52,17 @@ export const ActionIconsGroup: React.FC<ActionIconsGroupProps> = ({
         >
           {React.Children.map(children, (child) => {
             if (React.isValidElement(child)) {
+              const childProps = child.props as { 
+                style?: React.CSSProperties; 
+                ariaLabel?: string; 
+                title?: string;
+              };
               return React.cloneElement(child, {
-                style: { ...((child.props as { style?: React.CSSProperties }).style || {}), cursor },
+                style: { ...(childProps.style || {}), cursor },
+                ...(isDevMode && {
+                  ariaLabel: undefined,
+                  title: undefined,
+                }),
               } as React.HTMLAttributes<HTMLElement>);
             }
             return child;
