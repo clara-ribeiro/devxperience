@@ -33,24 +33,6 @@ export const Default: Story = {
   },
 };
 
-export const WithDevModeIcon: Story = {
-  name: "Botão com ícone Dev Mode",
-  args: {
-    icon: <DevModeIcon />,
-    ariaLabel: "Dev Mode",
-    title: "Ativar Dev Mode",
-  },
-};
-
-export const WithThemeIcon: Story = {
-  name: "Botão com ícone de tema",
-  args: {
-    icon: <LightModeIcon />,
-    ariaLabel: "Ativar modo claro",
-    title: "Modo claro",
-  },
-};
-
 export const Pressed: Story = {
   name: "Botão pressionado (light mode)",
   args: {
@@ -70,14 +52,3 @@ export const PressedDark: Story = {
     ariaPressed: true,
   },
 };
-
-export const WithControls: Story = {
-  name: "Botão com aria-controls",
-  args: {
-    icon: <SearchIcon />,
-    ariaLabel: "Abrir menu",
-    ariaControls: "mobile-menu",
-    ariaExpanded: false,
-  },
-};
-

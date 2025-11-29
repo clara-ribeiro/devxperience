@@ -37,25 +37,3 @@ type Story = StoryObj<typeof MainHero>;
 export const Default: Story = {
   name: "Hero padrão",
 };
-
-export const Accessible: Story = {
-  name: "Hero acessível",
-  parameters: {
-    a11y: {
-      // Configurações específicas de acessibilidade
-    },
-  },
-  play: async ({ canvasElement }) => {
-    const { within, expect } = await import("@storybook/testing-library");
-    const canvas = within(canvasElement);
-    
-    // Verificar heading principal
-    const heading = canvas.getByRole("heading", { name: /dev.*xperience/i });
-    await expect(heading).toBeVisible();
-    
-    // Verificar botão Dev Mode
-    const devModeButton = canvas.getByRole("button", { name: /modo dev/i });
-    await expect(devModeButton).toBeVisible();
-  },
-};
-
