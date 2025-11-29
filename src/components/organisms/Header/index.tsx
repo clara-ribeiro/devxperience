@@ -1,33 +1,16 @@
 "use client";
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Bar,
   Inner,
   DesktopNav as Nav,
   CenterLogo,
-  LogoLink,
   Actions,
-  IconButton,
-  MobileOnly,
   MobileMenuOverlay,
   MobileNavList,
-  ToggleButton,
-  DesktopOnly,
-  ThemeToggleWrapper,
 } from "./styles";
 
-import SearchIcon from "@/components/icons/SearchIcon";
-import DevModeIcon from "@/components/icons/DevModeIcon";
-import LightModeIcon from "@/components/icons/LightModeIcon";
-import DarkModeIcon from "@/components/icons/DarkModeIcon";
-import HamburgerIcon from "@/components/icons/HamburgerIcon";
-import CloseIcon from "@/components/icons/CloseIcon";
-import IconLogoLightMode from "@/components/icons/IconLogoLightMode.svg";
-import IconLogoDarkMode from "@/components/icons/IconLogoDarkMode.svg";
-import { useHeaderTheme } from "./hooks";
 import { HeaderProps, HeaderNavLink as HeaderNavLinkType } from "./types";
 import { useDevMode } from "@/context/dev-mode-context";
 import { useDevModeInteraction } from "@/hooks/useDevModeInteraction";
@@ -39,7 +22,18 @@ import {
   THEME_TOGGLE_METADATA,
   CONTAINER_METADATA,
 } from "./metadata";
-import { HeaderNavLink } from "./HeaderNavLink";
+
+// Atoms
+import { ResponsiveWrapper } from "@/components/atoms/ResponsiveWrapper";
+
+// Molecules
+import { LogoLink } from "@/components/molecules/LogoLink";
+import { NavLink } from "@/components/molecules/NavLink";
+import { ThemeToggleButton } from "@/components/molecules/ThemeToggleButton";
+import { DevModeToggleButton } from "@/components/molecules/DevModeToggleButton";
+import { SearchButton } from "@/components/molecules/SearchButton";
+import { MobileMenuButton } from "@/components/molecules/MobileMenuButton";
+import { ActionIconsGroup } from "@/components/molecules/ActionIconsGroup";
 
 const DEV_TARGET_ATTR = "data-devmode-target";
 
@@ -52,24 +46,14 @@ const DEFAULT_NAV_LINKS: HeaderNavLinkType[] = [
 
 export const Header: React.FC<HeaderProps> = ({ links = DEFAULT_NAV_LINKS }) => {
   const pathname = usePathname();
-  const { isDark, toggleTheme } = useHeaderTheme();
   const [menuOpen, setMenuOpen] = React.useState(false);
-  const { isDevMode, toggleDevMode } = useDevMode();
+  const { isDevMode } = useDevMode();
 
-  // Dev Mode interactions for each element
+  // Dev Mode interactions for container and nav container
   const containerInteraction = useDevModeInteraction(CONTAINER_METADATA);
   const logoInteraction = useDevModeInteraction(LOGO_METADATA);
   const navTextInteraction = useDevModeInteraction(NAV_TEXT_METADATA);
-  const themeToggleInteraction = useDevModeInteraction(THEME_TOGGLE_METADATA);
-  const actionIconsInteraction = useDevModeInteraction(ACTION_ICONS_METADATA);
   const neutralInteraction = useDevModeInteraction(null);
-
-  const devModeIconColors = React.useMemo(() => {
-    if (!isDevMode) return null;
-    return isDark
-      ? { bgColor: "#E7C19A", glyphColor: "#542918" }
-      : { bgColor: "#261D1D", glyphColor: "#E7C19A" };
-  }, [isDevMode, isDark]);
 
   const isSelected = (href: string) => pathname === href;
   const toggleMenu = () => setMenuOpen((v) => !v);
@@ -79,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({ links = DEFAULT_NAV_LINKS }) => 
       const selected = isSelected(href);
       const metadata = selected ? NAV_DEV_METADATA : NAV_TEXT_METADATA;
       return (
-        <HeaderNavLink
+        <NavLink
           key={href}
           href={href}
           label={label}
@@ -121,22 +105,7 @@ export const Header: React.FC<HeaderProps> = ({ links = DEFAULT_NAV_LINKS }) => 
           onBlurCapture={logoInteraction.hideMetadataTooltip}
           style={{ cursor: logoInteraction.getCursor() }}
         >
-          <LogoLink
-            href="/"
-            aria-label="Página inicial"
-            onClick={(event: React.SyntheticEvent) => {
-              if (logoInteraction.handleDevInteraction(event)) return;
-            }}
-            data-devmode-highlight={isDevMode ? "true" : undefined}
-            data-devmode-target={LOGO_METADATA.target}
-            style={{ cursor: logoInteraction.getCursor() }}
-          >
-            {isDark ? (
-              <Image src={IconLogoDarkMode} alt="devXperience" width={44} height={48} />
-            ) : (
-              <Image src={IconLogoLightMode} alt="devXperience" width={44} height={48} />
-            )}
-          </LogoLink>
+          <LogoLink metadata={LOGO_METADATA} />
         </CenterLogo>
 
         <Nav
@@ -157,88 +126,23 @@ export const Header: React.FC<HeaderProps> = ({ links = DEFAULT_NAV_LINKS }) => 
         </Nav>
 
         <Actions>
-          <ThemeToggleWrapper
-            data-devmode-highlight={isDevMode ? "true" : undefined}
-            data-devmode-target={THEME_TOGGLE_METADATA.target}
-            onMouseEnter={(event: React.MouseEvent<HTMLDivElement>) =>
-              themeToggleInteraction.showMetadataTooltip(event.currentTarget)
-            }
-            onMouseLeave={themeToggleInteraction.hideMetadataTooltip}
-            onFocusCapture={(event: React.FocusEvent<HTMLDivElement>) =>
-              themeToggleInteraction.showMetadataTooltip(event.currentTarget as HTMLElement)
-            }
-            onBlurCapture={themeToggleInteraction.hideMetadataTooltip}
-            style={{ cursor: isDevMode ? themeToggleInteraction.getCursor() : "pointer" }}
-          >
-            <ToggleButton
-              type="button"
-              onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
-                if (themeToggleInteraction.handleDevInteraction(event)) return;
-                toggleTheme();
-              }}
-              aria-label={isDark ? "Ativar modo claro" : "Ativar modo escuro"}
-              title={isDark ? "Modo claro" : "Modo escuro"}
-              data-devmode-highlight={isDevMode ? "true" : undefined}
-              style={{ cursor: themeToggleInteraction.getCursor() }}
-            >
-              {isDark ? <LightModeIcon /> : <DarkModeIcon />}
-            </ToggleButton>
-          </ThemeToggleWrapper>
+          <ThemeToggleButton metadata={THEME_TOGGLE_METADATA} />
 
-          <DesktopOnly
-            data-devmode-highlight={isDevMode ? "true" : undefined}
-            data-devmode-target={ACTION_ICONS_METADATA.target}
-            onMouseEnter={(event: React.MouseEvent<HTMLDivElement>) =>
-              actionIconsInteraction.showMetadataTooltip(event.currentTarget)
-            }
-            onMouseLeave={actionIconsInteraction.hideMetadataTooltip}
-            onFocus={(event: React.FocusEvent<HTMLDivElement>) =>
-              actionIconsInteraction.showMetadataTooltip(event.currentTarget as HTMLElement)
-            }
-            onBlur={actionIconsInteraction.hideMetadataTooltip}
-            onClick={(event: React.MouseEvent<HTMLDivElement>) => {
-              actionIconsInteraction.handleDevInteraction(event);
-            }}
-            style={{ cursor: isDevMode ? actionIconsInteraction.getCursor() : "pointer" }}
-          >
-            <IconButton
-              type="button"
-              aria-label="Buscar"
-              title="Buscar"
-              style={{ cursor: isDevMode ? actionIconsInteraction.getCursor() : "pointer" }}
-            >
-              <SearchIcon />
-            </IconButton>
-            <IconButton
-              type="button"
-              onClick={() => {
-                toggleDevMode("header-cta");
-              }}
-              aria-label={isDevMode ? "Desativar Dev Mode" : "Ativar Dev Mode"}
-              title={isDevMode ? "Dev Mode ativo" : "Dev Mode inativo"}
-              aria-pressed={isDevMode}
-              style={{ cursor: actionIconsInteraction.getCursor() }}
-            >
-              <DevModeIcon {...(devModeIconColors ?? {})} />
-            </IconButton>
-          </DesktopOnly>
+          <ActionIconsGroup metadata={ACTION_ICONS_METADATA}>
+            <SearchButton />
+            <DevModeToggleButton trigger="header-cta" />
+          </ActionIconsGroup>
 
-          <MobileOnly style={{ cursor: neutralInteraction.getCursor() }}>
-            <IconButton
-              type="button"
+          <ResponsiveWrapper variant="mobileOnly" style={{ cursor: neutralInteraction.getCursor() }}>
+            <MobileMenuButton
+              isOpen={menuOpen}
               onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
                 if (neutralInteraction.handleNeutralInteraction(event)) return;
                 toggleMenu();
               }}
-              aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-              aria-controls="mobile-primary-navigation"
-              aria-expanded={menuOpen}
-              title={menuOpen ? "Fechar menu" : "Abrir menu"}
-              style={{ cursor: neutralInteraction.getCursor() }}
-            >
-              {menuOpen ? <CloseIcon /> : <HamburgerIcon />}
-            </IconButton>
-          </MobileOnly>
+              ariaControls="mobile-primary-navigation"
+            />
+          </ResponsiveWrapper>
         </Actions>
       </Inner>
 

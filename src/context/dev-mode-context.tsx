@@ -193,7 +193,7 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
           role="dialog"
           aria-modal="true"
           aria-label={`Detalhes de ${activeMetadata.target}`}
-          onClick={(event) => event.stopPropagation()}
+          onClick={(event: React.MouseEvent<HTMLDivElement>) => event.stopPropagation()}
         >
           <ModalHeader>
             <ModalTarget>{activeMetadata.target}</ModalTarget>
