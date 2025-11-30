@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import MainHero from "./index";
+import { BulletText } from "./index";
 import { ThemeProvider } from "@/context/theme-context";
 import { DevModeProvider } from "@/context/dev-mode-context";
 
-const meta: Meta<typeof MainHero> = {
-  title: "Organisms/MainHero",
-  component: MainHero,
+const meta: Meta<typeof BulletText> = {
+  title: "Atoms/BulletText",
+  component: BulletText,
   tags: ["autodocs"],
   decorators: [
     (Story) => (
@@ -17,34 +17,30 @@ const meta: Meta<typeof MainHero> = {
     ),
   ],
   parameters: {
-    layout: "fullscreen",
-    a11y: {
-      config: {
-        rules: [
-          {
-            id: "color-contrast",
-            enabled: true,
-          },
-        ],
-      },
-    },
+    layout: "padded",
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof MainHero>;
+type Story = StoryObj<typeof BulletText>;
 
-export const Default: Story = {
-  name: "Hero padrão",
+export const LightMode: Story = {
+  name: "Light Mode",
+  args: {
+    children: "Interaja para descobrir: Passe o mouse sobre os componentes para revelar as explicações.",
+  },
 };
 
 export const DarkMode: Story = {
-  name: "Hero (Dark Mode)",
+  name: "Dark Mode",
+  args: {
+    children: "Entenda as decisões: Veja os princípios de UX, usabilidade e acessibilidade aplicados no código real.",
+  },
   decorators: [
     (Story) => (
       <ThemeProvider>
         <DevModeProvider>
-          <div className="dark-theme">
+          <div className="dark-theme" style={{ padding: "2rem", backgroundColor: "#261D1D" }}>
             <Story />
           </div>
         </DevModeProvider>
@@ -52,3 +48,4 @@ export const DarkMode: Story = {
     ),
   ],
 };
+

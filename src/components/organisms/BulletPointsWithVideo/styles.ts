@@ -1,19 +1,12 @@
 import { styled, darkTheme } from "@/styles/stitches.config";
 import { devModeHighlightStyles } from "@/styles/dev-mode.styles";
-import backgroundPattern from "./background.webp";
-
-const heroPatternUrl = `url(${backgroundPattern.src})`;
 
 export const Section = styled("section", {
-  overflow: "hidden",
   paddingTop: "4.44rem",
   paddingBottom: "4.44rem",
   paddingLeft: "1.78rem",
   paddingRight: "1.78rem",
-  display: "flex",
-  justifyContent: "center",
   backgroundColor: "#F1DFD2",
-  backgroundImage: `linear-gradient(rgba(197, 173, 156, 0.95), rgba(197, 173, 156, 0.95)), ${heroPatternUrl}`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
   backgroundPosition: "center",
@@ -27,11 +20,7 @@ export const Section = styled("section", {
   },
   [`.${darkTheme} &`]: {
     backgroundColor: "#261D1D",
-    backgroundImage: `linear-gradient(rgba(38, 29, 29, 0.97), rgba(38, 29, 29, 0.97)), ${heroPatternUrl}`,
     color: "#F1DFD2",
-  },
-  "&[data-devmode-highlight='true']:hover": {
-    ...devModeHighlightStyles,
   },
 });
 
@@ -39,13 +28,30 @@ export const ContentWrapper = styled("div", {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  textAlign: "center",
-  gap: "$3xl",
+  gap: "2.22rem",
   width: "100%",
   maxWidth: "75rem",
-  "@md": {
+  margin: "0 auto",
+  "@lg": {
+    flexDirection: "row",
     alignItems: "flex-start",
-    textAlign: "left",
+    gap: "4.44rem",
   },
 });
 
+export const LeftContent = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "2.22rem",
+  width: "100%",
+  "@lg": {
+    flex: 1,
+    gap: "3.33rem",
+  },
+});
+
+export const TitleWrapper = styled("div", {
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
+  },
+});

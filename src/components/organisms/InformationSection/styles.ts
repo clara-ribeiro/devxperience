@@ -1,5 +1,8 @@
 import { styled, darkTheme } from "@/styles/stitches.config";
 import { devModeHighlightStyles } from "@/styles/dev-mode.styles";
+import backgroundPattern from "./background.webp";
+
+const backgroundPatternUrl = `url(${backgroundPattern.src})`;
 
 export const Section = styled("section", {
   paddingTop: "4.44rem",
@@ -7,8 +10,10 @@ export const Section = styled("section", {
   paddingLeft: "1.78rem",
   paddingRight: "1.78rem",
   backgroundColor: "#F1DFD2",
+  backgroundImage: `linear-gradient(rgba(241, 223, 210, 0.95), rgba(241, 223, 210, 0.95)), ${backgroundPatternUrl}`,
   [`.${darkTheme} &`]: {
     backgroundColor: "#261D1D",
+    backgroundImage: `linear-gradient(rgba(38, 29, 29, 0.99), rgba(38, 29, 29, 0.99)), ${backgroundPatternUrl}`,
     color: "#F1DFD2",
   },
   "@md": {

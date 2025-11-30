@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import MainHero from "./index";
+import { BulletIcon } from "./index";
+import { MousePointerClick, Lightbulb, BookOpen } from "lucide-react";
 import { ThemeProvider } from "@/context/theme-context";
 import { DevModeProvider } from "@/context/dev-mode-context";
 
-const meta: Meta<typeof MainHero> = {
-  title: "Organisms/MainHero",
-  component: MainHero,
+const meta: Meta<typeof BulletIcon> = {
+  title: "Atoms/BulletIcon",
+  component: BulletIcon,
   tags: ["autodocs"],
   decorators: [
     (Story) => (
@@ -17,34 +18,32 @@ const meta: Meta<typeof MainHero> = {
     ),
   ],
   parameters: {
-    layout: "fullscreen",
-    a11y: {
-      config: {
-        rules: [
-          {
-            id: "color-contrast",
-            enabled: true,
-          },
-        ],
-      },
-    },
+    layout: "centered",
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof MainHero>;
+type Story = StoryObj<typeof BulletIcon>;
 
-export const Default: Story = {
-  name: "Hero padrão",
+export const LightMode: Story = {
+  name: "Light Mode",
+  args: {
+    icon: MousePointerClick,
+    color: "#542918",
+  },
 };
 
 export const DarkMode: Story = {
-  name: "Hero (Dark Mode)",
+  name: "Dark Mode",
+  args: {
+    icon: Lightbulb,
+    color: "#F1DFD2",
+  },
   decorators: [
     (Story) => (
       <ThemeProvider>
         <DevModeProvider>
-          <div className="dark-theme">
+          <div className="dark-theme" style={{ padding: "2rem", backgroundColor: "#261D1D" }}>
             <Story />
           </div>
         </DevModeProvider>
@@ -52,3 +51,4 @@ export const DarkMode: Story = {
     ),
   ],
 };
+

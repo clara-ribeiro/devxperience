@@ -89,3 +89,18 @@ export const WithCustomLinks: Story = {
     ],
   },
 };
+
+export const DarkMode: Story = {
+  name: "Header (Dark Mode)",
+  decorators: [
+    (Story) => (
+      <ThemeProvider>
+        <DevModeProvider>
+          <div className="dark-theme">
+            <Story />
+          </div>
+        </DevModeProvider>
+      </ThemeProvider>
+    ),
+  ],
+};

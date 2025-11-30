@@ -1,4 +1,5 @@
 import MainHero from "@/components/organisms/MainHero";
+import BulletPointsWithVideo from "@/components/organisms/BulletPointsWithVideo";
 import InformationSection from "@/components/organisms/InformationSection";
 import KnowledgePillars from "@/components/organisms/KnowledgePillars";
 import Banner from "@/components/organisms/Banner";
@@ -44,6 +45,7 @@ export default function Home() {
   return (
     <>
       <MainHero />
+      <BulletPointsWithVideo />
       <InformationSection />
       <KnowledgePillars
         title={knowledgePillarsData.title}
