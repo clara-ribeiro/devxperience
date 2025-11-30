@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from "./index";
 import SearchIcon from "@/components/icons/SearchIcon";
 import DevModeIcon from "@/components/icons/DevModeIcon";
-import LightModeIcon from "@/components/icons/LightModeIcon";
 import { ThemeProvider } from "@/context/theme-context";
 
 const meta: Meta<typeof IconButton> = {

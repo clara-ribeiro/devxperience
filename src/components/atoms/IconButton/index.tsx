@@ -3,7 +3,7 @@ import { StyledIconButton } from "./styles";
 
 export type IconButtonProps = {
   icon: React.ReactNode;
-  ariaLabel: string;
+  ariaLabel?: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   title?: string;
   ariaPressed?: boolean;
@@ -29,7 +29,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   return (
     <StyledIconButton
       type={type}
-      aria-label={ariaLabel}
+      aria-label={ariaLabel || undefined}
       title={title}
       aria-pressed={ariaPressed}
       aria-controls={ariaControls}

@@ -4,7 +4,6 @@ import { SearchButton } from "../SearchButton";
 import { DevModeToggleButton } from "../DevModeToggleButton";
 import { ThemeProvider } from "@/context/theme-context";
 import { DevModeProvider } from "@/context/dev-mode-context";
-import { ACTION_ICONS_METADATA } from "@/components/organisms/Header/metadata";
 
 const meta: Meta<typeof ActionIconsGroup> = {
   title: "Molecules/ActionIconsGroup",

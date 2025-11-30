@@ -50,13 +50,3 @@ export const HERO_SECONDARY_BUTTON_METADATA: DevModeMetadata = {
   wcag: "WCAG 2.4.7 (Focus Visible)",
 };
 
-export const HERO_BACKGROUND_METADATA: DevModeMetadata = {
-  target: "Background / Área Geral",
-  title: "A Dobra (Above the Fold)",
-  nielsenHeuristic: "Visibilidade e Atenção",
-  explanation:
-    "A Hero Section é a área mais valiosa do site. O fundo escuro com padrão sutil mantém o foco no conteúdo central sem causar distração visual, garantindo que a mensagem principal seja consumida antes de qualquer rolagem.",
-  academicRef: "Nielsen Norman Group (2010). Scrolling and Attention.",
-  wcag: null,
-};
-

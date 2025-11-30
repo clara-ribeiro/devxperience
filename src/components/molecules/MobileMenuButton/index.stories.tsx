@@ -32,18 +32,20 @@ export const Open: Story = {
   },
 };
 
+const InteractiveComponent = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <MobileMenuButton
+      isOpen={isOpen}
+      onClick={() => setIsOpen(!isOpen)}
+      ariaControls="mobile-menu"
+    />
+  );
+};
+
 export const Interactive: Story = {
   name: "Botão interativo",
-  render: () => {
-    const [isOpen, setIsOpen] = useState(false);
-    return (
-      <MobileMenuButton
-        isOpen={isOpen}
-        onClick={() => setIsOpen(!isOpen)}
-        ariaControls="mobile-menu"
-      />
-    );
-  },
+  render: () => <InteractiveComponent />,
 };
 
 export const CustomLabels: Story = {

@@ -10,17 +10,13 @@ import Button from "@/components/atoms/Button";
 import { useDevMode } from "@/context/dev-mode-context";
 import { useDevModeInteraction } from "@/hooks/useDevModeInteraction";
 import {
-  HERO_BACKGROUND_METADATA,
   HERO_PRIMARY_BUTTON_METADATA,
   HERO_SECONDARY_BUTTON_METADATA,
 } from "./metadata";
 
-const DEV_TARGET_ATTR = "data-devmode-target";
-
 const MainHero: React.FC = () => {
   const { isDark } = useTheme();
   const { isDevMode, toggleDevMode } = useDevMode();
-  const backgroundInteraction = useDevModeInteraction(HERO_BACKGROUND_METADATA);
   const primaryButtonInteraction = useDevModeInteraction(HERO_PRIMARY_BUTTON_METADATA);
   const secondaryButtonInteraction = useDevModeInteraction(HERO_SECONDARY_BUTTON_METADATA);
 
@@ -52,21 +48,7 @@ const MainHero: React.FC = () => {
   };
 
   return (
-    <Section
-      aria-labelledby="hero-heading"
-      data-devmode-highlight={isDevMode ? "true" : undefined}
-      onMouseEnter={(event: React.MouseEvent<HTMLElement>) =>
-        backgroundInteraction.showMetadataTooltip(event.currentTarget as HTMLElement)
-      }
-      onMouseLeave={backgroundInteraction.hideMetadataTooltip}
-      onClick={(event: React.MouseEvent<HTMLElement>) => {
-        if (!isDevMode) return;
-        const target = event.target as HTMLElement;
-        if (target.closest(`[${DEV_TARGET_ATTR}]`)) return;
-        backgroundInteraction.handleDevInteraction(event);
-      }}
-      style={{ cursor: backgroundInteraction.getCursor() }}
-    >
+    <Section aria-labelledby="hero-heading">
       <HeroCopy>
         <HeroHeadingGroup headingId="hero-heading" />
 

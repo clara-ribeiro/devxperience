@@ -113,7 +113,7 @@ export const LogoLink = styled(Link, {
   justifyContent: "center",
   width: "4.5rem",
   height: "auto",
-  borderRadius: devModeHighlightStyles.borderRadius,
+  borderRadius: "$md",
   "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-visible": {
     ...devModeHighlightStyles,
   },
