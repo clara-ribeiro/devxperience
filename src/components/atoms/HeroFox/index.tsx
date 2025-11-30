@@ -48,7 +48,7 @@ export const HeroFox: React.FC<HeroFoxProps> = ({
       }}
     >
       <Image
-        src={isDark ? StandardFoxLight : StandardFox}
+        src={isDark ? StandardFox : StandardFoxLight}
         alt={alt}
         width={width}
         height={height}

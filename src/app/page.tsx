@@ -1,5 +1,14 @@
 import MainHero from "@/components/organisms/MainHero";
 import KnowledgePillars from "@/components/organisms/KnowledgePillars";
+import Banner from "@/components/organisms/Banner";
+
+const bannerData = {
+  title: "Referências que todo Dev deveria conhecer",
+  description:
+    "Uma seleção criteriosa de conteúdos sobre Experiência do Usuário (UX), Facilidade de Uso e Acessibilidade Web. O material certo para consultar sempre que tiver dúvidas.",
+  buttonLabel: "Acessar materiais →",
+  buttonHref: "/leituras",
+};
 
 const knowledgePillarsData = {
   title: "Conhecimento para ir além do código",
@@ -34,6 +43,12 @@ export default function Home() {
   return (
     <>
       <MainHero />
+      <Banner
+        title={bannerData.title}
+        description={bannerData.description}
+        buttonLabel={bannerData.buttonLabel}
+        buttonHref={bannerData.buttonHref}
+      />
       <KnowledgePillars
         title={knowledgePillarsData.title}
         description={knowledgePillarsData.description}
