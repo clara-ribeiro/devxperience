@@ -135,7 +135,9 @@ export const Header: React.FC<HeaderProps> = ({ links = DEFAULT_NAV_LINKS }) => 
 
         <Actions>
           <ThemeToggleButton metadata={THEME_TOGGLE_METADATA} />
-          <DevModeToggleButton trigger="header-cta" />
+          <ResponsiveWrapper variant="desktopOnly">
+            <DevModeToggleButton trigger="header-cta" />
+          </ResponsiveWrapper>
 
           <ResponsiveWrapper variant="mobileOnly" style={{ cursor: neutralInteraction.getCursor() }}>
             <MobileMenuButton
