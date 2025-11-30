@@ -1,4 +1,5 @@
 import MainHero from "@/components/organisms/MainHero";
+import InformationSection from "@/components/organisms/InformationSection";
 import KnowledgePillars from "@/components/organisms/KnowledgePillars";
 import Banner from "@/components/organisms/Banner";
 
@@ -43,16 +44,17 @@ export default function Home() {
   return (
     <>
       <MainHero />
+      <InformationSection />
+      <KnowledgePillars
+        title={knowledgePillarsData.title}
+        description={knowledgePillarsData.description}
+        cards={knowledgePillarsData.cards}
+      />
       <Banner
         title={bannerData.title}
         description={bannerData.description}
         buttonLabel={bannerData.buttonLabel}
         buttonHref={bannerData.buttonHref}
-      />
-      <KnowledgePillars
-        title={knowledgePillarsData.title}
-        description={knowledgePillarsData.description}
-        cards={knowledgePillarsData.cards}
       />
     </>
   );
