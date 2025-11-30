@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { HeroDescription } from "./index";
 import { ThemeProvider } from "@/context/theme-context";
+import { DevModeProvider } from "@/context/dev-mode-context";
 
 const meta: Meta<typeof HeroDescription> = {
   title: "Atoms/HeroDescription",
@@ -9,7 +10,9 @@ const meta: Meta<typeof HeroDescription> = {
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <Story />
+        <DevModeProvider>
+          <Story />
+        </DevModeProvider>
       </ThemeProvider>
     ),
   ],

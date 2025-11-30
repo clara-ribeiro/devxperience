@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { HeroHeadingGroup } from "./index";
 import { ThemeProvider } from "@/context/theme-context";
+import { DevModeProvider } from "@/context/dev-mode-context";
 
 const meta: Meta<typeof HeroHeadingGroup> = {
   title: "Molecules/HeroHeadingGroup",
@@ -9,7 +10,9 @@ const meta: Meta<typeof HeroHeadingGroup> = {
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <Story />
+        <DevModeProvider>
+          <Story />
+        </DevModeProvider>
       </ThemeProvider>
     ),
   ],
@@ -24,11 +27,3 @@ type Story = StoryObj<typeof HeroHeadingGroup>;
 export const Default: Story = {
   name: "Grupo de heading padrão",
 };
-
-export const WithId: Story = {
-  name: "Grupo com ID",
-  args: {
-    headingId: "hero-heading",
-  },
-};
-

@@ -1,10 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Button from "./index";
+import { ThemeProvider } from "@/context/theme-context";
 
 const meta: Meta<typeof Button> = {
   title: "Atoms/Button",
   component: Button,
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <ThemeProvider>
+        <Story />
+      </ThemeProvider>
+    ),
+  ],
   parameters: {
     layout: "centered",
   },

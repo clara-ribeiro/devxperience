@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { NavLink } from "./index";
 import { ThemeProvider } from "@/context/theme-context";
 import { DevModeProvider } from "@/context/dev-mode-context";
-import { NAV_DEV_METADATA, NAV_TEXT_METADATA } from "@/components/organisms/Header/metadata";
 
 const meta: Meta<typeof NavLink> = {
   title: "Molecules/NavLink",
@@ -41,26 +40,6 @@ export const Selected: Story = {
     href: "/ux",
     label: "UX",
     selected: true,
-  },
-};
-
-export const WithDevMode: Story = {
-  name: "Link com Dev Mode (selecionado)",
-  args: {
-    href: "/ux",
-    label: "UX",
-    selected: true,
-    metadata: NAV_DEV_METADATA,
-  },
-};
-
-export const WithDevModeText: Story = {
-  name: "Link com Dev Mode (texto)",
-  args: {
-    href: "/usabilidade",
-    label: "Usabilidade",
-    selected: false,
-    metadata: NAV_TEXT_METADATA,
   },
 };
 

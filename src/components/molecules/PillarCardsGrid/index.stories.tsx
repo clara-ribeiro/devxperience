@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { PillarCardsGrid } from "./index";
 import { ThemeProvider } from "@/context/theme-context";
+import { DevModeProvider } from "@/context/dev-mode-context";
 
 const meta: Meta<typeof PillarCardsGrid> = {
   title: "Molecules/PillarCardsGrid",
@@ -9,7 +10,9 @@ const meta: Meta<typeof PillarCardsGrid> = {
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <Story />
+        <DevModeProvider>
+          <Story />
+        </DevModeProvider>
       </ThemeProvider>
     ),
   ],
@@ -50,19 +53,3 @@ export const Default: Story = {
     cards: defaultCards,
   },
 };
-
-export const DarkMode: Story = {
-  args: {
-    cards: defaultCards,
-  },
-  decorators: [
-    (Story) => (
-      <ThemeProvider>
-        <div className="dark-theme" style={{ padding: "2rem", backgroundColor: "#261D1D" }}>
-          <Story />
-        </div>
-      </ThemeProvider>
-    ),
-  ],
-};
-

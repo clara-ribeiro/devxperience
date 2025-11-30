@@ -1,11 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { HeroActions } from "./index";
 import Button from "@/components/atoms/Button";
+import { ThemeProvider } from "@/context/theme-context";
 
 const meta: Meta<typeof HeroActions> = {
   title: "Molecules/HeroActions",
   component: HeroActions,
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <ThemeProvider>
+        <Story />
+      </ThemeProvider>
+    ),
+  ],
   parameters: {
     layout: "centered",
   },

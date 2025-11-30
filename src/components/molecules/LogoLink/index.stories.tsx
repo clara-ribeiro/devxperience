@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LogoLink } from "./index";
 import { ThemeProvider } from "@/context/theme-context";
 import { DevModeProvider } from "@/context/dev-mode-context";
-import { LOGO_METADATA } from "@/components/organisms/Header/metadata";
 
 const meta: Meta<typeof LogoLink> = {
   title: "Molecules/LogoLink",
@@ -27,13 +26,6 @@ type Story = StoryObj<typeof LogoLink>;
 
 export const Default: Story = {
   name: "Logo link padrão",
-};
-
-export const WithDevMode: Story = {
-  name: "Logo link com Dev Mode",
-  args: {
-    metadata: LOGO_METADATA,
-  },
 };
 
 export const CustomSize: Story = {

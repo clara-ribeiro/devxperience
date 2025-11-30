@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { PillarCard } from "./index";
 import { ThemeProvider } from "@/context/theme-context";
+import { DevModeProvider } from "@/context/dev-mode-context";
 
 const meta: Meta<typeof PillarCard> = {
   title: "Molecules/PillarCard",
@@ -9,7 +10,9 @@ const meta: Meta<typeof PillarCard> = {
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <Story />
+        <DevModeProvider>
+          <Story />
+        </DevModeProvider>
       </ThemeProvider>
     ),
   ],
@@ -42,9 +45,11 @@ export const DarkMode: Story = {
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <div className="dark-theme" style={{ padding: "2rem", backgroundColor: "#261D1D" }}>
-          <Story />
-        </div>
+        <DevModeProvider>
+          <div className="dark-theme" style={{ padding: "2rem", backgroundColor: "#261D1D" }}>
+            <Story />
+          </div>
+        </DevModeProvider>
       </ThemeProvider>
     ),
   ],
