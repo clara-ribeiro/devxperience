@@ -41,7 +41,7 @@ export const DevModeToggleButton: React.FC<DevModeToggleButtonProps> = ({
       onClick={() => {
         toggleDevMode(trigger);
       }}
-      style={style}
+      style={{ ...style, cursor: "pointer" }}
       className={className}
     />
   );

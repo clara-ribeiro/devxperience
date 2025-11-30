@@ -10,6 +10,11 @@ export const StyledNavLink = styled(Link, {
   minHeight: "2.44rem", // 44px min touch target
   paddingLeft: "0.44rem",
   paddingRight: "0.44rem",
+  transition: "text-decoration 150ms ease",
+  "&:hover": {
+    textDecoration: "underline",
+    textUnderlineOffset: "0.22rem",
+  },
   [`.${darkTheme} &`]: {
     color: "$headerItemUnselectedDark",
   },

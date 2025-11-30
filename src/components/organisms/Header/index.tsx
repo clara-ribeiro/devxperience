@@ -17,7 +17,6 @@ import { useDevModeInteraction } from "@/hooks/useDevModeInteraction";
 import {
   NAV_DEV_METADATA,
   NAV_TEXT_METADATA,
-  ACTION_ICONS_METADATA,
   LOGO_METADATA,
   THEME_TOGGLE_METADATA,
   CONTAINER_METADATA,
@@ -31,9 +30,7 @@ import { LogoLink } from "@/components/molecules/LogoLink";
 import { NavLink } from "@/components/molecules/NavLink";
 import { ThemeToggleButton } from "@/components/molecules/ThemeToggleButton";
 import { DevModeToggleButton } from "@/components/molecules/DevModeToggleButton";
-import { SearchButton } from "@/components/molecules/SearchButton";
 import { MobileMenuButton } from "@/components/molecules/MobileMenuButton";
-import { ActionIconsGroup } from "@/components/molecules/ActionIconsGroup";
 
 const DEV_TARGET_ATTR = "data-devmode-target";
 
@@ -93,7 +90,11 @@ export const Header: React.FC<HeaderProps> = ({ links = DEFAULT_NAV_LINKS }) => 
       onClick={(event: React.MouseEvent<HTMLElement>) => {
         if (!isDevMode) return;
         const target = event.target as HTMLElement;
-        if (target.closest(`[${DEV_TARGET_ATTR}]`)) return;
+        // Se o clique foi em um link, botão ou elemento interativo (exceto o próprio container), não fazer nada
+        if ((target.closest("a") || target.closest("button") || (target.closest(`[${DEV_TARGET_ATTR}]`) && target.closest(`[${DEV_TARGET_ATTR}]`) !== event.currentTarget))) {
+          return;
+        }
+        // Se o clique foi diretamente no container ou em um espaço vazio, abrir modal
         containerInteraction.handleDevInteraction(event);
       }}
       style={{ cursor: containerInteraction.getCursor() }}
@@ -134,11 +135,7 @@ export const Header: React.FC<HeaderProps> = ({ links = DEFAULT_NAV_LINKS }) => 
 
         <Actions>
           <ThemeToggleButton metadata={THEME_TOGGLE_METADATA} />
-
-          <ActionIconsGroup>
-            <SearchButton metadata={ACTION_ICONS_METADATA} />
-            <DevModeToggleButton trigger="header-cta" />
-          </ActionIconsGroup>
+          <DevModeToggleButton trigger="header-cta" />
 
           <ResponsiveWrapper variant="mobileOnly" style={{ cursor: neutralInteraction.getCursor() }}>
             <MobileMenuButton

@@ -22,7 +22,7 @@ const KnowledgePillars: React.FC<KnowledgePillarsProps> = ({
   style,
 }) => {
   return (
-    <Section className={className} style={style} aria-labelledby="knowledge-pillars-heading">
+    <Section id="knowledge-pillars" className={className} style={style} aria-labelledby="knowledge-pillars-heading">
       <ContentWrapper>
         <SectionTitle id="knowledge-pillars-heading">{title}</SectionTitle>
         <SectionDescription>{description}</SectionDescription>

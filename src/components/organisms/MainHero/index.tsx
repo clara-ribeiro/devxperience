@@ -7,6 +7,7 @@ import { HeroHeadingGroup } from "@/components/molecules/HeroHeadingGroup";
 import { HeroDescription } from "@/components/atoms/HeroDescription";
 import { HeroActions } from "@/components/molecules/HeroActions";
 import Button from "@/components/atoms/Button";
+import { ResponsiveWrapper } from "@/components/atoms/ResponsiveWrapper";
 import { useDevMode } from "@/context/dev-mode-context";
 import { useDevModeInteraction } from "@/hooks/useDevModeInteraction";
 import {
@@ -44,7 +45,11 @@ const MainHero: React.FC = () => {
     if (isDevMode && secondaryButtonInteraction.handleDevInteraction(event)) {
       return;
     }
-    // Ação normal do botão secundário (se houver)
+    // Scroll suave até o componente KnowledgePillars
+    const knowledgePillarsElement = document.getElementById("knowledge-pillars");
+    if (knowledgePillarsElement) {
+      knowledgePillarsElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -58,25 +63,27 @@ const MainHero: React.FC = () => {
         </HeroDescription>
 
         <HeroActions>
-          <Button
-            type="button"
-            label={isDevMode ? "Modo Dev Ativado" : "Modo Dev"}
-            variant="solid"
-            colors={primaryButtonColors}
-            onClick={handlePrimaryButtonClick}
-            aria-pressed={isDevMode}
-            data-devmode-highlight={isDevMode ? "true" : undefined}
-            data-devmode-target={HERO_PRIMARY_BUTTON_METADATA.target}
-            onMouseEnter={(event: React.MouseEvent<HTMLButtonElement>) =>
-              primaryButtonInteraction.showMetadataTooltip(event.currentTarget)
-            }
-            onMouseLeave={primaryButtonInteraction.hideMetadataTooltip}
-            onFocusCapture={(event: React.FocusEvent<HTMLButtonElement>) =>
-              primaryButtonInteraction.showMetadataTooltip(event.currentTarget as HTMLElement)
-            }
-            onBlurCapture={primaryButtonInteraction.hideMetadataTooltip}
-            style={{ cursor: primaryButtonInteraction.getCursor() }}
-          />
+          <ResponsiveWrapper variant="desktopOnly">
+            <Button
+              type="button"
+              label={isDevMode ? "Modo Dev Ativado" : "Modo Dev"}
+              variant="solid"
+              colors={primaryButtonColors}
+              onClick={handlePrimaryButtonClick}
+              aria-pressed={isDevMode}
+              data-devmode-highlight={isDevMode ? "true" : undefined}
+              data-devmode-target={HERO_PRIMARY_BUTTON_METADATA.target}
+              onMouseEnter={(event: React.MouseEvent<HTMLButtonElement>) =>
+                primaryButtonInteraction.showMetadataTooltip(event.currentTarget)
+              }
+              onMouseLeave={primaryButtonInteraction.hideMetadataTooltip}
+              onFocusCapture={(event: React.FocusEvent<HTMLButtonElement>) =>
+                primaryButtonInteraction.showMetadataTooltip(event.currentTarget as HTMLElement)
+              }
+              onBlurCapture={primaryButtonInteraction.hideMetadataTooltip}
+              style={{ cursor: primaryButtonInteraction.getCursor() }}
+            />
+          </ResponsiveWrapper>
           <Button
             type="button"
             label="Explorar Conteúdos"
