@@ -1,9 +1,6 @@
-import MainHero from "@/components/organisms/MainHero";
-import BulletPointsWithVideo from "@/components/organisms/BulletPointsWithVideo";
-import InformationSection from "@/components/organisms/InformationSection";
-import KnowledgePillars from "@/components/organisms/KnowledgePillars";
-import Banner from "@/components/organisms/Banner";
-import FAQ from "@/components/organisms/FAQ";
+import HomeTemplate from "@/components/templates/HomeTemplate";
+import { PillarCardData } from "@/components/molecules/PillarCardsGrid";
+import { FAQItemData } from "@/components/organisms/FAQ";
 
 const bannerData = {
   title: "Referências que todo Dev deveria conhecer",
@@ -42,7 +39,7 @@ const knowledgePillarsData = {
   ],
 };
 
-const faqData = [
+const faqData: FAQItemData[] = [
   {
     question: "As informações técnicas são confiáveis?",
     answer: "Sim. Todo o conteúdo é curado com base em bibliografia acadêmica (como as heurísticas de Nielsen e princípios de Don Norman) e documentação técnica oficial (W3C, WCAG e MDN). Não é apenas opinião, é ciência aplicada ao design.",
@@ -63,22 +60,10 @@ const faqData = [
 
 export default function Home() {
   return (
-    <>
-      <MainHero />
-      <BulletPointsWithVideo />
-      <InformationSection />
-      <KnowledgePillars
-        title={knowledgePillarsData.title}
-        description={knowledgePillarsData.description}
-        cards={knowledgePillarsData.cards}
-      />
-      <Banner
-        title={bannerData.title}
-        description={bannerData.description}
-        buttonLabel={bannerData.buttonLabel}
-        buttonHref={bannerData.buttonHref}
-      />
-      <FAQ items={faqData} />
-    </>
+    <HomeTemplate
+      knowledgePillars={knowledgePillarsData}
+      banner={bannerData}
+      faqItems={faqData}
+    />
   );
 }
