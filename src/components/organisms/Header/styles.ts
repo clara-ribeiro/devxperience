@@ -1,6 +1,7 @@
 import { styled, darkTheme } from "@/styles/stitches.config";
 import Link from "next/link";
 import { devModeHighlightStyles } from "@/styles/dev-mode.styles";
+import { background } from "storybook/theming";
 
 export const Bar = styled("header", {
   backgroundColor: "$headerBgLight",
@@ -20,10 +21,8 @@ export const Bar = styled("header", {
     backgroundColor: "$headerBgDark",
     borderBottom: "1px solid rgba(231,193,154,0.25)",
   },
-  "&[data-devmode-highlight='true']:hover": {
-    outline: devModeHighlightStyles.outline,
-    outlineOffset: devModeHighlightStyles.outlineOffset,
-    cursor: devModeHighlightStyles.cursor,
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
   },
 });
 

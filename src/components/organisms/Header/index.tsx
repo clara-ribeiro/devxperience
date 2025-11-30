@@ -79,10 +79,17 @@ export const Header: React.FC<HeaderProps> = ({ links = DEFAULT_NAV_LINKS }) => 
   return (
     <Bar
       data-devmode-highlight={isDevMode ? "true" : undefined}
-      onMouseEnter={(event: React.MouseEvent<HTMLElement>) =>
-        containerInteraction.showMetadataTooltip(event.currentTarget as HTMLElement)
+      data-devmode-target={CONTAINER_METADATA.target}
+      onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
+        if (isDevMode) {
+          containerInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
       }
-      onMouseLeave={containerInteraction.hideMetadataTooltip}
+      }}
+      onMouseLeave={() => {
+        if (isDevMode) {
+          containerInteraction.hideMetadataTooltip();
+        }
+      }}
       onClick={(event: React.MouseEvent<HTMLElement>) => {
         if (!isDevMode) return;
         const target = event.target as HTMLElement;
@@ -128,8 +135,8 @@ export const Header: React.FC<HeaderProps> = ({ links = DEFAULT_NAV_LINKS }) => 
         <Actions>
           <ThemeToggleButton metadata={THEME_TOGGLE_METADATA} />
 
-          <ActionIconsGroup metadata={ACTION_ICONS_METADATA}>
-            <SearchButton />
+          <ActionIconsGroup>
+            <SearchButton metadata={ACTION_ICONS_METADATA} />
             <DevModeToggleButton trigger="header-cta" />
           </ActionIconsGroup>
 

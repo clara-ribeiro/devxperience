@@ -313,7 +313,6 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
   return (
     <DevModeContext.Provider value={value}>
       {children}
-      {renderOverlay()}
       {renderTooltip()}
       {renderModal()}
     </DevModeContext.Provider>

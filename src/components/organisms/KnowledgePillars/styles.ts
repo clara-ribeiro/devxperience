@@ -31,9 +31,7 @@ export const Section = styled("section", {
     color: "#F1DFD2",
   },
   "&[data-devmode-highlight='true']:hover": {
-    outline: devModeHighlightStyles.outline,
-    outlineOffset: devModeHighlightStyles.outlineOffset,
-    cursor: devModeHighlightStyles.cursor,
+    ...devModeHighlightStyles,
   },
 });
 

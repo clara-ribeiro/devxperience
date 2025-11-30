@@ -30,28 +30,25 @@ export const Section = styled("section", {
     backgroundImage: `${bannerBackgroundUrl}`,
   },
   "&[data-devmode-highlight='true']:hover": {
-    outline: devModeHighlightStyles.outline,
-    outlineOffset: devModeHighlightStyles.outlineOffset,
-    cursor: devModeHighlightStyles.cursor,
+    ...devModeHighlightStyles,
   },
 });
 
 export const ContentWrapper = styled("div", {
   backgroundColor: "#994B35",
   borderRadius: "0.666rem",
-  padding: "2.77rem",
+  padding: "1.77rem",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  gap: "$3xl",
   width: "100%",
   maxWidth: "75rem",
-  position: "relative",
   "@md": {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     gap: "$4xl",
+    position: "relative",
   },
   "@lg": {
     gap: "$5xl",
@@ -67,11 +64,15 @@ export const BannerTitle = styled("h2", {
   margin: 0,
   textAlign: "center",
   marginBottom: "$2xl",
-  width: "75%",
+  width: "100%",
+  [`.${darkTheme} &`]: {
+    color: "#F1DFD2",
+  },
   "@md": {
     fontSize: "$h1",
     textAlign: "left",
     marginBottom: "$3xl",
+    width: "75%",
   },
   "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-visible": {
     ...devModeHighlightStyles,
@@ -85,7 +86,7 @@ export const BannerDescription = styled("p", {
   color: "#F1DFD2",
   margin: 0,
   textAlign: "center",
-  width: "auto",
+  width: "100%",
   marginBottom: "$3xl",
   [`.${darkTheme} &`]: {
     color: "#F1DFD2",
@@ -113,12 +114,17 @@ export const FoxIllustration = styled("div", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  width: "19.66rem",
+  width: "100%",
+  maxWidth: "20rem",
   flexShrink: 0,
-  position: "absolute",
-  bottom: "-0.222rem",
-  right: "-3.222rem",
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
+  },
   "@md": {
+    position: "absolute",
+    bottom: "-0.222rem",
+    right: "-3.222rem",
+    width: "19.66rem",
     maxWidth: "22rem",
   },
   "@lg": {
@@ -126,7 +132,10 @@ export const FoxIllustration = styled("div", {
   },
   "& img": {
     width: "100%",
-    height: "auto",
+    height: "75%",
+    "@md": {
+      height: "auto",
+    },
   },
 });
 
