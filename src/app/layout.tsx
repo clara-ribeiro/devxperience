@@ -5,6 +5,8 @@ import { globalStyles, darkTheme } from "@/styles/stitches.config";
 import { ThemeProvider } from "@/context/theme-context";
 import { DevModeProvider } from "@/context/dev-mode-context";
 import Header from "@/components/organisms/Header";
+import Footer from "@/components/organisms/Footer";
+import DevModeHelpFab from "@/components/organisms/DevModeHelpFab";
 import StitchesRegistry from "./stitches-registry";
 
 const raleway = Raleway({
@@ -56,6 +58,8 @@ export default function RootLayout({
             <DevModeProvider>
             <Header />
             <main role="main">{children}</main>
+            <Footer />
+            <DevModeHelpFab />
             </DevModeProvider>
           </ThemeProvider>
         </StitchesRegistry>

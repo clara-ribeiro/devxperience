@@ -24,28 +24,9 @@ const meta: Meta<typeof FAQQuestion> = {
 export default meta;
 type Story = StoryObj<typeof FAQQuestion>;
 
-export const LightMode: Story = {
+export const Default: Story = {
   name: "Light Mode",
   args: {
     children: "O devXperience é um projeto real ou apenas conceitual?",
   },
 };
-
-export const DarkMode: Story = {
-  name: "Dark Mode",
-  args: {
-    children: "As informações técnicas são confiáveis?",
-  },
-  decorators: [
-    (Story) => (
-      <ThemeProvider>
-        <DevModeProvider>
-          <div className="dark-theme" style={{ padding: "2rem", backgroundColor: "#261D1D" }}>
-            <Story />
-          </div>
-        </DevModeProvider>
-      </ThemeProvider>
-    ),
-  ],
-};
-
