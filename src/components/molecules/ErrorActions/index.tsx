@@ -53,7 +53,7 @@ export const ErrorActions: React.FC<ErrorActionsProps> = ({
           {action.type === "button" || action.onClick ? (
             <StyledActionButton
               type="button"
-              onClick={(event) => handleAction(action, event)}
+              onClick={(event: React.MouseEvent<HTMLButtonElement>) => handleAction(action, event)}
               data-devmode-highlight={isDevMode && metadata ? "true" : undefined}
               data-devmode-target={metadata?.target}
               onMouseEnter={(event: React.MouseEvent<HTMLButtonElement>) => {

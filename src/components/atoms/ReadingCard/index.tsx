@@ -49,7 +49,7 @@ export const ReadingCard: React.FC<ReadingCardProps> = ({
         const target = event.target as HTMLElement;
         // Só mostra tooltip se não estiver sobre um elemento filho instrumentado
         if (!target.closest('[data-devmode-target]') || target === event.currentTarget) {
-          cardInteraction.showMetadataTooltip(event.currentTarget);
+          cardInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
         }
       }
     },
