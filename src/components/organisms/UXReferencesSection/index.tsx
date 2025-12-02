@@ -86,7 +86,26 @@ const UXReferencesSection: React.FC = () => {
       style={{ cursor: sectionInteraction.getCursor() }}
       id="ux-references"
     >
-      <Card>
+      <Card
+        data-devmode-highlight={isDevMode ? "true" : undefined}
+        data-devmode-target={SECTION_CONTAINER_METADATA.target}
+        onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
+          if (isDevMode) {
+            sectionInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
+          }
+        }}
+        onMouseLeave={() => {
+          if (isDevMode) {
+            sectionInteraction.hideMetadataTooltip();
+          }
+        }}
+        onClick={(event: React.MouseEvent<HTMLElement>) => {
+          if (isDevMode) {
+            sectionInteraction.handleDevInteraction(event);
+          }
+        }}
+        style={{ cursor: sectionInteraction.getCursor() }}
+      >
         <Title id="ux-references-heading">Referências</Title>
         <ReferencesList>
           {references.map((reference) => (

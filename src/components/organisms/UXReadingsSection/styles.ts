@@ -65,6 +65,9 @@ export const Title = styled("h2", {
     fontSize: "$h1",
     textAlign: "left",
   },
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
+  },
 });
 
 export const Subtitle = styled("p", {
@@ -133,6 +136,9 @@ export const FeaturedCardWrapper = styled("div", {
     [`${StyledReadingCard}`]: {
       flex: "1 1 calc(24% - 0.74rem)",
     },
+  },
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
   },
 });
 

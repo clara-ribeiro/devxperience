@@ -83,6 +83,9 @@ export const ExampleItem = styled("div", {
   [`.${darkTheme} &`]: {
     backgroundColor: "rgba(27, 20, 18, 0.5)",
   },
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
+  },
 });
 
 export const ExampleSeparator = styled("hr", {

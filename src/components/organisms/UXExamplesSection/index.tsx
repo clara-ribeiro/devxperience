@@ -1,7 +1,9 @@
-"use client";
+ "use client";
 
 import React from "react";
 import Image from "next/image";
+import { useDevMode } from "@/context/dev-mode-context";
+import { useDevModeInteraction } from "@/hooks/useDevModeInteraction";
 import {
   Section,
   ContentWrapper,
@@ -16,9 +18,13 @@ import ux1 from "./ux-1.webp";
 import ux2 from "./ux-2.webp";
 import ux3 from "./ux-3.webp";
 import ux4 from "./ux-4.webp";
-import { Bold } from "lucide-react";
+import { UX_EXAMPLES_CARDS_METADATA, UX_EXAMPLES_CONTAINER_METADATA } from "./metadata";
 
 const UXExamplesSection: React.FC = () => {
+  const { isDevMode } = useDevMode();
+  const containerInteraction = useDevModeInteraction(UX_EXAMPLES_CONTAINER_METADATA);
+  const cardsInteraction = useDevModeInteraction(UX_EXAMPLES_CARDS_METADATA);
+
   const handleReferenceClick = () => {
     if (typeof window !== "undefined") {
       sessionStorage.setItem("ux_last_ref_scroll", String(window.scrollY));
@@ -28,10 +34,48 @@ const UXExamplesSection: React.FC = () => {
   return (
     <Section aria-labelledby="ux-examples-heading">
       <ContentWrapper>
-        <ExampleCard>
+        <ExampleCard
+          data-devmode-highlight={isDevMode ? "true" : undefined}
+          data-devmode-target={UX_EXAMPLES_CONTAINER_METADATA.target}
+          onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
+            if (isDevMode) {
+              containerInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
+            }
+          }}
+          onMouseLeave={() => {
+            if (isDevMode) {
+              containerInteraction.hideMetadataTooltip();
+            }
+          }}
+          onClick={(event: React.MouseEvent<HTMLElement>) => {
+            if (isDevMode) {
+              containerInteraction.handleDevInteraction(event);
+            }
+          }}
+          style={{ cursor: containerInteraction.getCursor() }}
+        >
           <ExampleTitle id="ux-examples-heading">Exemplos práticos de UX</ExampleTitle>
 
-          <ExampleItem>
+          <ExampleItem
+            data-devmode-highlight={isDevMode ? "true" : undefined}
+            data-devmode-target={UX_EXAMPLES_CARDS_METADATA.target}
+            onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
+              if (isDevMode) {
+                cardsInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
+              }
+            }}
+            onMouseLeave={() => {
+              if (isDevMode) {
+                cardsInteraction.hideMetadataTooltip();
+              }
+            }}
+            onClick={(event: React.MouseEvent<HTMLElement>) => {
+              if (isDevMode) {
+                cardsInteraction.handleDevInteraction(event);
+              }
+            }}
+            style={{ cursor: cardsInteraction.getCursor() }}
+          >
             <ExampleSubtitle>1. Arquitetura de Informação</ExampleSubtitle>
             <ExampleImageWrapper>
               <Image src={ux1} alt='Header com os links "UX", "Usabilidade" e "Acessibilidade".' />
@@ -48,7 +92,26 @@ const UXExamplesSection: React.FC = () => {
             </ExampleDescription>
           </ExampleItem>
 
-          <ExampleItem>
+          <ExampleItem
+            data-devmode-highlight={isDevMode ? "true" : undefined}
+            data-devmode-target={UX_EXAMPLES_CARDS_METADATA.target}
+            onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
+              if (isDevMode) {
+                cardsInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
+              }
+            }}
+            onMouseLeave={() => {
+              if (isDevMode) {
+                cardsInteraction.hideMetadataTooltip();
+              }
+            }}
+            onClick={(event: React.MouseEvent<HTMLElement>) => {
+              if (isDevMode) {
+                cardsInteraction.handleDevInteraction(event);
+              }
+            }}
+            style={{ cursor: cardsInteraction.getCursor() }}
+          >
             <ExampleSubtitle>2. Design Emocional</ExampleSubtitle>
             <ExampleImageWrapper>
               <Image src={ux2} alt="Ilustração da raposa na Hero Section e na página 404." />
@@ -65,7 +128,26 @@ const UXExamplesSection: React.FC = () => {
             </ExampleDescription>
           </ExampleItem>
 
-          <ExampleItem>
+          <ExampleItem
+            data-devmode-highlight={isDevMode ? "true" : undefined}
+            data-devmode-target={UX_EXAMPLES_CARDS_METADATA.target}
+            onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
+              if (isDevMode) {
+                cardsInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
+              }
+            }}
+            onMouseLeave={() => {
+              if (isDevMode) {
+                cardsInteraction.hideMetadataTooltip();
+              }
+            }}
+            onClick={(event: React.MouseEvent<HTMLElement>) => {
+              if (isDevMode) {
+                cardsInteraction.handleDevInteraction(event);
+              }
+            }}
+            style={{ cursor: cardsInteraction.getCursor() }}
+          >
             <ExampleSubtitle>3. Carga Cognitiva e Escaneabilidade</ExampleSubtitle>
             <ExampleImageWrapper>
               <Image src={ux3} alt="Seção de Leituras Recomendadas com cards de conteúdo." />
@@ -82,7 +164,26 @@ const UXExamplesSection: React.FC = () => {
             </ExampleDescription>
           </ExampleItem>
 
-          <ExampleItem>
+          <ExampleItem
+            data-devmode-highlight={isDevMode ? "true" : undefined}
+            data-devmode-target={UX_EXAMPLES_CARDS_METADATA.target}
+            onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
+              if (isDevMode) {
+                cardsInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
+              }
+            }}
+            onMouseLeave={() => {
+              if (isDevMode) {
+                cardsInteraction.hideMetadataTooltip();
+              }
+            }}
+            onClick={(event: React.MouseEvent<HTMLElement>) => {
+              if (isDevMode) {
+                cardsInteraction.handleDevInteraction(event);
+              }
+            }}
+            style={{ cursor: cardsInteraction.getCursor() }}
+          >
             <ExampleSubtitle>4. Modelos Mentais</ExampleSubtitle>
             <ExampleImageWrapper>
               <Image src={ux4} alt="Rodapé completo com informações institucionais e redes sociais." />

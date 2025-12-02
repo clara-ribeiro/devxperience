@@ -5,10 +5,15 @@ import { useDevMode } from "@/context/dev-mode-context";
 import { useDevModeInteraction } from "@/hooks/useDevModeInteraction";
 import { Section, CardsWrapper, Card, CardTitle, CardSeparator, CardBody } from "./styles";
 import { SECTION_CONTAINER_METADATA } from "@/components/organisms/InformationSection/metadata";
+import { UX_THEORY_BLOCKS_METADATA } from "./metadata";
+import { UX_ISO_CARD_METADATA, UX_ROI_CARD_METADATA } from "./metadata";
 
 const UXConceptSections: React.FC = () => {
   const { isDevMode } = useDevMode();
   const sectionInteraction = useDevModeInteraction(SECTION_CONTAINER_METADATA);
+  const theoryInteraction = useDevModeInteraction(UX_THEORY_BLOCKS_METADATA);
+  const isoCardInteraction = useDevModeInteraction(UX_ISO_CARD_METADATA);
+  const roiCardInteraction = useDevModeInteraction(UX_ROI_CARD_METADATA);
 
   const handleReferenceClick = () => {
     if (typeof window !== "undefined") {
@@ -38,8 +43,46 @@ const UXConceptSections: React.FC = () => {
       }}
       style={{ cursor: sectionInteraction.getCursor() }}
     >
-      <CardsWrapper>
-        <Card>
+      <CardsWrapper
+        data-devmode-highlight={isDevMode ? "true" : undefined}
+        data-devmode-target={UX_THEORY_BLOCKS_METADATA.target}
+        onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
+          if (isDevMode) {
+            theoryInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
+          }
+        }}
+        onMouseLeave={() => {
+          if (isDevMode) {
+            theoryInteraction.hideMetadataTooltip();
+          }
+        }}
+        onClick={(event: React.MouseEvent<HTMLElement>) => {
+          if (isDevMode) {
+            theoryInteraction.handleDevInteraction(event);
+          }
+        }}
+        style={{ cursor: theoryInteraction.getCursor() }}
+      >
+        <Card
+          data-devmode-highlight={isDevMode ? "true" : undefined}
+          data-devmode-target={UX_ISO_CARD_METADATA.target}
+          onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
+            if (isDevMode) {
+              isoCardInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
+            }
+          }}
+          onMouseLeave={() => {
+            if (isDevMode) {
+              isoCardInteraction.hideMetadataTooltip();
+            }
+          }}
+          onClick={(event: React.MouseEvent<HTMLElement>) => {
+            if (isDevMode) {
+              isoCardInteraction.handleDevInteraction(event);
+            }
+          }}
+          style={{ cursor: isoCardInteraction.getCursor() }}
+        >
           <CardTitle>O que é UX?</CardTitle>
           <CardSeparator />
           <CardBody>
@@ -80,7 +123,26 @@ const UXConceptSections: React.FC = () => {
           </CardBody>
         </Card>
 
-        <Card>
+        <Card
+          data-devmode-highlight={isDevMode ? "true" : undefined}
+          data-devmode-target={UX_ROI_CARD_METADATA.target}
+          onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
+            if (isDevMode) {
+              roiCardInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
+            }
+          }}
+          onMouseLeave={() => {
+            if (isDevMode) {
+              roiCardInteraction.hideMetadataTooltip();
+            }
+          }}
+          onClick={(event: React.MouseEvent<HTMLElement>) => {
+            if (isDevMode) {
+              roiCardInteraction.handleDevInteraction(event);
+            }
+          }}
+          style={{ cursor: roiCardInteraction.getCursor() }}
+        >
           <CardTitle>Por que UX é importante?</CardTitle>
           <CardSeparator />
           <CardBody>

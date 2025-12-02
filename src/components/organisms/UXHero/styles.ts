@@ -1,4 +1,5 @@
 import { styled, darkTheme } from "@/styles/stitches.config";
+import { devModeHighlightStyles } from "@/styles/dev-mode.styles";
 
 export const Section = styled("section", {
   paddingTop: "4.44rem",
@@ -14,6 +15,9 @@ export const Section = styled("section", {
   "@lg": {
     paddingLeft: "4.44rem",
     paddingRight: "4.44rem",
+  },
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
   },
 });
 
@@ -92,6 +96,9 @@ export const FoxWrapper = styled("div", {
     left: "5.5rem",
     top: "0.6rem",
     marginTop: 0,
+  },
+  "&[data-devmode-highlight='true']:hover, &[data-devmode-highlight='true']:focus-within": {
+    ...devModeHighlightStyles,
   },
 });
 
