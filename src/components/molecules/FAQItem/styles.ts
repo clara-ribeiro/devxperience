@@ -1,7 +1,7 @@
 import { styled, darkTheme } from "@/styles/stitches.config";
 import { devModeHighlightStyles } from "@/styles/dev-mode.styles";
 
-export const FAQItemContainer = styled("div", {
+export const FAQItemContainer = styled("li", {
   backgroundColor: "#FFFFFF",
   borderRadius: "0.67rem",
   border: "1px solid rgba(98, 65, 65, 0.2)",

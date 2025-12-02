@@ -45,7 +45,7 @@ const FAQ: React.FC<FAQProps> = ({ items, className, style }) => {
       <ContentWrapper>
         <SectionTitle id="faq-heading">Perguntas Frequentes</SectionTitle>
 
-        <FAQList role="list">
+        <FAQList>
           {items.map((item, index) => {
             // Alterna entre Accordion e Lei de Fitts para o header
             const headerMetadata = index % 2 === 0 ? ACCORDION_PATTERN_METADATA : CLICKABLE_AREA_METADATA;

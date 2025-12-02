@@ -5,6 +5,7 @@ export type FAQAnswerProps = {
   children: React.ReactNode;
   isExpanded: boolean;
   id?: string;
+  ariaLabelledById?: string;
   className?: string;
   style?: React.CSSProperties;
 };
@@ -13,6 +14,7 @@ export const FAQAnswer: React.FC<FAQAnswerProps> = ({
   children,
   isExpanded,
   id,
+  ariaLabelledById,
   className,
   style,
 }) => {
@@ -23,6 +25,7 @@ export const FAQAnswer: React.FC<FAQAnswerProps> = ({
       className={className}
       style={style}
       role="region"
+      aria-labelledby={ariaLabelledById}
       aria-hidden={!isExpanded}
     >
       {children}

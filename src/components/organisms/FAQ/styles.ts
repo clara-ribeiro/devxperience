@@ -42,11 +42,14 @@ export const ContentWrapper = styled("div", {
   },
 });
 
-export const FAQList = styled("div", {
+export const FAQList = styled("ul", {
   display: "flex",
   flexDirection: "column",
   gap: "1.33rem",
   width: "100%",
+  listStyle: "none",
+  padding: 0,
+  margin: 0,
   "@md": {
     gap: "1.78rem",
   },

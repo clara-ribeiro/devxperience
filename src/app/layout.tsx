@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Raleway, Josefin_Slab } from "next/font/google";
-import "./globals.css";
-import { globalStyles, darkTheme } from "@/styles/stitches.config";
+import { globalStyles } from "@/styles/stitches.config";
 import { ThemeProvider } from "@/context/theme-context";
 import { DevModeProvider } from "@/context/dev-mode-context";
 import Header from "@/components/organisms/Header";
 import Footer from "@/components/organisms/Footer";
-import DevModeHelpFab from "@/components/organisms/DevModeHelpFab";
 import StitchesRegistry from "./stitches-registry";
+import DevModeHelpFab from "@/components/organisms/DevModeHelpFab";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -35,8 +34,6 @@ export const metadata: Metadata = {
     "TCC Engenharia de Software",
   ],
   authors: [{ name: "Clara Sousa" }],
-  viewport: "width=device-width, initial-scale=1.0",
-  themeColor: "#3D2823",
   openGraph: {
     type: "website",
     url: "https://www.devxperience.com.br/",
@@ -54,19 +51,11 @@ export const metadata: Metadata = {
   },
 };
 
-const themeScript = `
-(function() {
-  try {
-    const storageKey = 'dx_theme';
-    const classNameDark = '${darkTheme}';
-    const root = document.documentElement;
-    const stored = localStorage.getItem(storageKey);
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldUseDark = stored ? stored === 'dark' : prefersDark;
-    root.classList.toggle(classNameDark, shouldUseDark);
-  } catch (e) {}
-})();
-`;
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#3D2823",
+};
 
 export default function RootLayout({
   children,
@@ -77,8 +66,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
-        <meta name="title" content="devXperience | Onde o código encontra o design" />
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <meta
+          name="description"
+          content="Comunidade e guia prático para devs que querem criar interfaces mais humanas. Aprenda UX, usabilidade e acessibilidade diretamente no código com o Modo Dev interativo."
+        />
       </head>
       <body suppressHydrationWarning className={`${raleway.variable} ${josefinSlab.variable}`}>
         <StitchesRegistry>

@@ -118,6 +118,7 @@ export const globalStyles = globalCss({
 	"*, *::before, *::after": { boxSizing: "border-box" },
 	html: {
 		fontSize: "112.5%",
+		maxWidth: "100vw",
 	},
 	body: {
 		margin: 0,
@@ -127,6 +128,7 @@ export const globalStyles = globalCss({
 		lineHeight: 1.5,
 		WebkitFontSmoothing: "antialiased",
 		MozOsxFontSmoothing: "grayscale",
+		maxWidth: "100vw",
 	},
 	"img, picture, video, canvas, svg": {
 		display: "block",

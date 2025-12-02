@@ -57,6 +57,7 @@ export const FAQItem: React.FC<FAQItemProps> = ({
 }) => {
   const answerId = id ? `${id}-answer` : undefined;
   const iconId = id ? `${id}-icon` : undefined;
+  const questionId = id ? `${id}-question` : undefined;
 
   const handleHeaderClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (onClick) {
@@ -94,7 +95,7 @@ export const FAQItem: React.FC<FAQItemProps> = ({
       onBlurCapture={onBlurCapture}
     >
       <FAQHeader onClick={handleHeaderClick} role="button" tabIndex={0} aria-expanded={isExpanded} aria-controls={answerId}>
-        <FAQQuestion>{question}</FAQQuestion>
+        <FAQQuestion id={questionId}>{question}</FAQQuestion>
         <FAQIcon
           isExpanded={isExpanded}
           onClick={handleIconClick}
@@ -109,7 +110,7 @@ export const FAQItem: React.FC<FAQItemProps> = ({
           style={iconStyle}
         />
       </FAQHeader>
-      <FAQAnswer id={answerId} isExpanded={isExpanded}>
+      <FAQAnswer id={answerId} isExpanded={isExpanded} ariaLabelledById={questionId}>
         {answer}
       </FAQAnswer>
     </FAQItemContainer>

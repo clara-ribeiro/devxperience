@@ -13,10 +13,6 @@ export const Section = styled("section", {
   display: "flex",
   justifyContent: "center",
   backgroundColor: "#F1DFD2",
-  backgroundImage: `linear-gradient(rgba(241, 223, 210, 0.9), rgba(241, 223, 210, 0.9)), ${heroPatternUrl}`,
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
   "@md": {
     paddingTop: "6.67rem",
     paddingBottom: "6.67rem",
@@ -24,10 +20,16 @@ export const Section = styled("section", {
   "@lg": {
     paddingLeft: "4.44rem",
     paddingRight: "4.44rem",
+    backgroundImage: `linear-gradient(rgba(241, 223, 210, 0.9), rgba(241, 223, 210, 0.9)), ${heroPatternUrl}`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   },
   [`.${darkTheme} &`]: {
     backgroundColor: "#261D1D",
-    backgroundImage: `linear-gradient(rgba(38, 29, 29, 0.97), rgba(38, 29, 29, 0.97)), ${heroPatternUrl}`,
+    "@lg": {
+      backgroundImage: `linear-gradient(rgba(38, 29, 29, 0.97), rgba(38, 29, 29, 0.97)), ${heroPatternUrl}`,
+    },
     color: "#F1DFD2",
   },
   "&[data-devmode-highlight='true']:hover": {

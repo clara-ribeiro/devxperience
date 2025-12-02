@@ -28,13 +28,8 @@ const getPreferredTheme = (): Theme => {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 };
 
-const getInitialTheme = (): Theme => {
-  if (typeof document === "undefined") return "light";
-  return document.documentElement.classList.contains(darkTheme) ? "dark" : "light";
-};
-
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setThemeState] = React.useState<Theme>(getInitialTheme);
+  const [theme, setThemeState] = React.useState<Theme>("light");
 
   React.useEffect(() => {
     const stored = getStoredTheme();
