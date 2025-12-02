@@ -21,7 +21,6 @@ import {
   READINGS_HERO_DESCRIPTION_METADATA,
 } from "./metadata";
 
-// Re-export FilterOption for convenience
 export type { FilterOption };
 
 export type ReadingsHeroProps = {

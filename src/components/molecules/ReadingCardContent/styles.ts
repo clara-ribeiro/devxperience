@@ -14,7 +14,6 @@ export const StyledCardTag = styled("div", {
   marginTop: "-1.33rem",
   position: "relative",
   zIndex: 1,
-  // Garante que a tag não fique colada nas bordas em telas menores
   maxWidth: "100%",
 });
 

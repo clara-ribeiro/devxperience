@@ -44,7 +44,7 @@ export const ExampleCard = styled("article", {
 
 export const ExampleTitle = styled("h2", {
   margin: 0,
-  fontFamily: "$body", // Josefin Slab
+  fontFamily: "$body",
   fontSize: "2.11rem",
   textTransform: "uppercase",
   fontWeight: 700,
@@ -56,7 +56,7 @@ export const ExampleTitle = styled("h2", {
 
 export const ExampleDescription = styled("p", {
   margin: 0,
-  fontFamily: "$heading", // Raleway
+  fontFamily: "$heading",
   fontSize: "1.22rem",
   lineHeight: 1.5,
   color: "$hiContrast",
@@ -94,8 +94,8 @@ export const ExampleSeparator = styled("hr", {
 
 export const ExampleSubtitle = styled("h3", {
   margin: 0,
-  fontFamily: "$heading", // Raleway
-  fontSize: "$h3", // menor que o título principal
+  fontFamily: "$heading",
+  fontSize: "$h3",
   fontWeight: 700,
   color: "#261D1D",
   [`.${darkTheme} &`]: {

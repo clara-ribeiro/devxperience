@@ -26,13 +26,10 @@ export const ReadingCard: React.FC<ReadingCardProps> = ({
 
   const handleCardClick = (event: React.MouseEvent) => {
     if (isDevMode && metadata) {
-      // Verificar se o clique foi na borda/fundo do card (não em elementos filhos instrumentados)
       const target = event.target as HTMLElement;
       const currentTarget = event.currentTarget;
-      
-      // Se clicou diretamente no card ou em áreas não instrumentadas (mas não em links ou outros elementos clicáveis)
       const isClickableChild = target.closest('a') || target.closest('button') || target.closest('[data-devmode-target]');
-      
+
       if (target === currentTarget || (!isClickableChild && !target.closest('[data-devmode-target]'))) {
         cardInteraction.handleDevInteraction(event);
       }
@@ -47,7 +44,6 @@ export const ReadingCard: React.FC<ReadingCardProps> = ({
     onMouseEnter: (event: React.MouseEvent) => {
       if (isDevMode && metadata) {
         const target = event.target as HTMLElement;
-        // Só mostra tooltip se não estiver sobre um elemento filho instrumentado
         if (!target.closest('[data-devmode-target]') || target === event.currentTarget) {
           cardInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
         }

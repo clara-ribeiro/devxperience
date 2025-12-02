@@ -36,7 +36,6 @@ const getInitialTheme = (): Theme => {
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = React.useState<Theme>(getInitialTheme);
 
-  // Sync with stored/sytem preference on mount
   React.useEffect(() => {
     const stored = getStoredTheme();
     setThemeState(stored ?? getPreferredTheme());

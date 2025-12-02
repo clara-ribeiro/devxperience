@@ -3,10 +3,10 @@ import { devModeHighlightStyles } from "@/styles/dev-mode.styles";
 
 export const FABContainer = styled("button", {
   position: "fixed",
-  bottom: "1.5rem", // 6 * 0.25rem = 1.5rem (bottom-6)
-  right: "1.5rem", // right-6
+  bottom: "1.5rem",
+  right: "1.5rem",
   zIndex: 1000,
-  width: "3.56rem", // ~64px
+  width: "3.56rem",
   height: "3.56rem",
   borderRadius: "50%",
   border: "none",
@@ -44,7 +44,7 @@ export const FABIcon = styled("div", {
   alignItems: "center",
   justifyContent: "center",
   "& > svg": {
-    width: "1.78rem", // ~32px
+    width: "1.78rem",
     height: "1.78rem",
     color: "#FFFFFF",
   },
@@ -164,9 +164,9 @@ export const IntroTextContainer = styled("div", {
 
 export const IntroText = styled("p", {
   margin: 0,
-  fontSize: "1.33rem", // 24px
-  lineHeight: 1.75, // leading-relaxed
-  color: "#542918", // Tom marrom escuro do tema
+  fontSize: "1.33rem",
+  lineHeight: 1.75,
+  color: "#542918",
   textAlign: "left",
   "& strong": {
     fontWeight: 700,

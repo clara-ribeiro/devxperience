@@ -48,7 +48,7 @@ export const Card = styled("article", {
 
 export const CardTitle = styled("h2", {
   margin: 0,
-  fontFamily: "$body", // Josefin Slab
+  fontFamily: "$body",
   fontSize: "2.11rem",
   textTransform: "uppercase",
   fontWeight: 700,
@@ -71,7 +71,7 @@ export const CardBody = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "2.44rem",
-  fontFamily: "$heading", // Raleway
+  fontFamily: "$heading",
   fontSize: "1.22rem",
   lineHeight: 1.5,
   color: "$hiContrast",

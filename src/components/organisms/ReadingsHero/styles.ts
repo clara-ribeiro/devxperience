@@ -12,7 +12,6 @@ export const StyledSection = styled("section", {
   paddingLeft: "1.78rem",
   paddingRight: "1.78rem",
   backgroundColor: "#C28166",
-  // Em mobile, não mostra o background da raposa
   backgroundImage: "none",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "top left",
@@ -21,7 +20,6 @@ export const StyledSection = styled("section", {
   "@md": {
     paddingTop: "6.67rem",
     paddingBottom: "6.67rem",
-    // A partir de @md, mostra o background light no modo claro
     backgroundImage: foxBackgroundLightUrl,
   },
 
@@ -32,11 +30,9 @@ export const StyledSection = styled("section", {
 
   [`.${darkTheme} &`]: {
     backgroundColor: "#1B1412",
-    // Em mobile dark, não mostra background
     backgroundImage: "none",
-    
+
     "@md": {
-      // A partir de @md dark, mostra o background original
       backgroundImage: foxBackgroundUrl,
     },
   },
@@ -62,15 +58,15 @@ export const StyledFoxWrapper = styled("div", {
   justifyContent: "center",
   alignItems: "center",
   width: "100%",
-  maxWidth: "240px", // Menor em mobile
+  maxWidth: "240px",
   margin: "0 auto",
 
   "@md": {
-    maxWidth: "300px", // Aumenta um pouco em tablets
+    maxWidth: "300px",
   },
 
   "@lg": {
-    maxWidth: "354px", // Tamanho original em desktop
+    maxWidth: "354px",
     margin: 0,
   },
 
@@ -160,7 +156,6 @@ export const StyledScrollHint = styled("button", {
     borderRadius: "9999px",
   },
   [`.${darkTheme} &`]: {
-    // No dark mode, removemos o círculo para não competir com o fundo
     backgroundColor: "transparent",
   },
 });

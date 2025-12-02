@@ -45,7 +45,6 @@ const MainHero: React.FC = () => {
     if (isDevMode && secondaryButtonInteraction.handleDevInteraction(event)) {
       return;
     }
-    // Scroll suave até o componente KnowledgePillars
     const knowledgePillarsElement = document.getElementById("knowledge-pillars");
     if (knowledgePillarsElement) {
       knowledgePillarsElement.scrollIntoView({ behavior: "smooth", block: "start" });

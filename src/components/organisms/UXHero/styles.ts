@@ -68,8 +68,8 @@ export const HeroTitle = styled("h1", {
   "@lg": {
     marginTop: "9.33rem",
     marginLeft: "22rem",
-    fontSize: "13.89rem", // 250px
-    lineHeight: "5.56rem", // 100px
+    fontSize: "13.89rem",
+    lineHeight: "5.56rem",
     "& span:first-child": {
       fontSize: "13.89rem",
       textAlign: "left",
@@ -79,9 +79,6 @@ export const HeroTitle = styled("h1", {
       textAlign: "left",
     },
   },
-  // Variante específica para a página de Acessibilidade:
-  // - Mobile: ambos spans com 3rem
-  // - Desktop: ambos spans com 5.89rem
   "&[data-title-variant='accessibility']": {
     fontSize: "3rem",
     lineHeight: "3.5rem",

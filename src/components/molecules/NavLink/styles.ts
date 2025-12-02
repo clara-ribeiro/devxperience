@@ -7,7 +7,7 @@ export const StyledNavLink = styled(Link, {
   textDecoration: "none",
   display: "inline-flex",
   alignItems: "center",
-  minHeight: "2.44rem", // 44px min touch target
+  minHeight: "2.44rem",
   paddingLeft: "0.44rem",
   paddingRight: "0.44rem",
   transition: "text-decoration 150ms ease",

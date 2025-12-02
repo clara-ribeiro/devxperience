@@ -23,7 +23,6 @@ export const BackToTopButton: React.FC<BackToTopButtonProps> = ({
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Mostra o botão quando o usuário rola mais de 300px
       if (window.pageYOffset > 300) {
         setIsVisible(true);
       } else {

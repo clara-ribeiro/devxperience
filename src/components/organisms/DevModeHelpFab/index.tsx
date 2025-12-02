@@ -36,7 +36,6 @@ export const DevModeHelpFab: React.FC<DevModeHelpFabProps> = ({
   const { isDark } = useTheme();
   const [isMounted, setIsMounted] = React.useState(false);
 
-  // Garantir que o componente só renderize no cliente
   React.useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -48,17 +47,15 @@ export const DevModeHelpFab: React.FC<DevModeHelpFabProps> = ({
 
   const handleClose = () => {
     setIsOpen(false);
-    // Reset para intro quando fechar
     setTimeout(() => {
       setCurrentView("intro");
-    }, 250); // Aguardar animação de fechamento
+    }, 250);
   };
 
   const handleShowVideo = () => {
     setCurrentView("video");
   };
 
-  // Fechar com ESC
   React.useEffect(() => {
     if (!isOpen) return;
     const handleEscape = (event: KeyboardEvent) => {
@@ -70,7 +67,6 @@ export const DevModeHelpFab: React.FC<DevModeHelpFabProps> = ({
     return () => window.removeEventListener("keydown", handleEscape);
   }, [isOpen]);
 
-  // Prevenir scroll do body quando modal estiver aberto
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";

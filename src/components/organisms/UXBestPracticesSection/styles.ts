@@ -38,7 +38,7 @@ export const Card = styled("article", {
 
 export const Title = styled("h2", {
   margin: 0,
-  fontFamily: "$body", // Josefin Slab
+  fontFamily: "$body",
   fontSize: "2.11rem",
   textTransform: "uppercase",
   fontWeight: 700,
@@ -51,7 +51,7 @@ export const Title = styled("h2", {
 export const Description = styled("p", {
   marginTop: "0.44rem",
   marginBottom: "1.11rem",
-  fontFamily: "$heading", // Raleway
+  fontFamily: "$heading",
   fontSize: "1.22rem",
   lineHeight: 1.5,
   color: "$hiContrast",
@@ -82,7 +82,7 @@ export const ChecklistItem = styled("li", {
   display: "flex",
   alignItems: "flex-start",
   gap: "0.67rem",
-  fontFamily: "$heading", // Raleway
+  fontFamily: "$heading",
   fontSize: "1rem",
   lineHeight: 1.5,
   color: "$hiContrast",

@@ -22,11 +22,7 @@ import {
   THEME_TOGGLE_METADATA,
   CONTAINER_METADATA,
 } from "./metadata";
-
-// Atoms
 import { ResponsiveWrapper } from "@/components/atoms/ResponsiveWrapper";
-
-// Molecules
 import { LogoLink } from "@/components/molecules/LogoLink";
 import { NavLink } from "@/components/molecules/NavLink";
 import { ThemeToggleButton } from "@/components/molecules/ThemeToggleButton";
@@ -49,7 +45,6 @@ export const Header: React.FC<HeaderProps> = ({ links = DEFAULT_NAV_LINKS }) => 
   const [menuOpen, setMenuOpen] = React.useState(false);
   const { isDevMode } = useDevMode();
 
-  // Dev Mode interactions for container and nav container
   const containerInteraction = useDevModeInteraction(CONTAINER_METADATA);
   const logoInteraction = useDevModeInteraction(LOGO_METADATA);
   const navTextInteraction = useDevModeInteraction(NAV_TEXT_METADATA);

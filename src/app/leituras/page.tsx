@@ -61,10 +61,7 @@ export const metadata: Metadata = {
   },
 };
 
-// Dados para a seção de Leituras Recomendadas
-// Curadoria feita a partir da bibliografia do TCC
 const readingsData = [
-  // --- UX DESIGN ---
   {
     id: 1,
     category: "UX Design",
@@ -101,7 +98,6 @@ const readingsData = [
       "Conhecido como o 'Livro Verde' da IHC no Brasil. Uma obra acadêmica robusta que conecta a teoria profunda com a prática de desenvolvimento de interfaces em nosso contexto cultural.",
     link: "https://leanpub.com/ihc-ux",
   },
-  // --- USABILIDADE ---
   {
     id: 5,
     category: "Usabilidade",
@@ -129,7 +125,6 @@ const readingsData = [
       "O livro mais popular sobre usabilidade web. Curto, ilustrado e direto ao ponto: o usuário não deve gastar energia mental tentando entender como sua interface funciona. Ela deve ser óbvia.",
     link: "https://sensible.com/dont-make-me-think/",
   },
-  // --- ACESSIBILIDADE ---
   {
     id: 8,
     category: "Acessibilidade",
@@ -157,7 +152,6 @@ const readingsData = [
       "A norma internacional que define o 'Design Centrado no Humano'. Fundamental para quem trabalha em grandes corporações ou projetos que exigem conformidade com padrões globais de qualidade.",
     link: "https://www.iso.org/standard/77520.html",
   },
-  // --- NOVOS ITENS DE UX DESIGN ---
   {
     id: 11,
     category: "UX Design",
@@ -176,7 +170,6 @@ const readingsData = [
       "Excelente para entender o 'mundo real'. Foca menos na teoria acadêmica e mais em como o UX se encaixa no cronograma, nas entregas e na colaboração com desenvolvedores e gerentes de projeto.",
     link: "https://www.peachpit.com/store/project-guide-to-ux-design-for-user-experience-designers-9780321815385",
   },
-  // --- NOVOS ITENS DE USABILIDADE ---
   {
     id: 13,
     category: "Usabilidade",
@@ -195,7 +188,6 @@ const readingsData = [
       "Publicado pela O'Reilly (famosa entre devs), este livro fala a nossa língua. É um guia prático sobre como incorporar o feedback do usuário durante o ciclo de desenvolvimento de software, não apenas no final.",
     link: "https://novatec.com.br/livros/design-centrado-usuario/",
   },
-  // --- NOVOS ITENS DE ACESSIBILIDADE ---
   {
     id: 15,
     category: "Acessibilidade",
@@ -205,7 +197,6 @@ const readingsData = [
       "A norma técnica oficial de Acessibilidade Digital no Brasil. Define os requisitos e parâmetros nacionais para garantir que interfaces sejam perceptíveis, operáveis e compreensíveis por pessoas com deficiência.",
     link: "https://www.abntcatalogo.com.br/",
   },
-  // --- NOVOS EM: UX DESIGN & PROCESSO ---
   {
     id: 16,
     category: "UX Design",
@@ -242,7 +233,6 @@ const readingsData = [
       "A base da componentização moderna (React/Vue). Ensina a criar sistemas de design escaláveis dividindo interfaces em átomos, moléculas e organismos. Essencial para organizar seu código frontend.",
     link: "https://atomicdesign.bradfrost.com/",
   },
-  // --- NOVOS EM: USABILIDADE & MÉTRICAS ---
   {
     id: 20,
     category: "Usabilidade",
@@ -279,7 +269,6 @@ const readingsData = [
       "O livro de cabeceira do desenvolvedor que quer melhorar o visual de suas aplicações. Ensina táticas de design visual a partir da perspectiva de um desenvolvedor, sem teoria de cores complexa.",
     link: "https://www.refactoringui.com/",
   },
-  // --- NOVOS EM: ACESSIBILIDADE & PADRÕES ---
   {
     id: 24,
     category: "Acessibilidade",
@@ -324,7 +313,6 @@ const filterOptions: FilterOption[] = [
   { label: "Acessibilidade", value: "acessibilidade" },
 ];
 
-// Converter os dados para o formato esperado pelos componentes
 const allReadings: ReadingItem[] = readingsData.map((reading) => ({
   id: reading.id.toString(),
   category: reading.category,

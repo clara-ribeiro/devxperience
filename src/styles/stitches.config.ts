@@ -11,7 +11,6 @@ export const {
 	createTheme,
 } = createStitches({
 	theme: {
-		// Design Tokens - Light theme (default)
 		colors: {
 			primary: "#AD4528",
 			textPrimary: "#624141",
@@ -19,12 +18,10 @@ export const {
 			surfaceAlt: "#E7C19A",
 			supportGreen: "#99B69E",
 			supportPink: "#B86D6C",
-			// Header specific (Light mode)
 			headerBgLight: "#E7C19A",
 			headerItemUnselectedLight: "#261D1D",
 			headerItemSelectedLight: "#542918",
 			headerIconLight: "#261D1D",
-			// Aliases used in components/utilities
 			bg: "#F4E2D4",
 			hiContrast: "#624141",
 			loContrast: "rgba(98, 65, 65, 0.75)",
@@ -36,13 +33,13 @@ export const {
 			body: '"Josefin Slab", Georgia, Cambria, "Times New Roman", Times, serif',
 		},
 		fontSizes: {
-			h1: "3.33rem", // 60px
-			h2: "2.22rem", // 40px
-			h3: "1.44rem", // 26px
-			h4: "1.11rem", // 20px
-			body1: "1rem", // 18px
-			body2: "0.89rem", // 16px
-			caption: "0.67rem", // 12px
+			h1: "3.33rem",
+			h2: "2.22rem",
+			h3: "1.44rem",
+			h4: "1.11rem",
+			body1: "1rem",
+			body2: "0.89rem",
+			caption: "0.67rem",
 		},
 		space: {
 			xs: "0.22rem",
@@ -82,7 +79,6 @@ export const {
 		py: (value: string | number) => ({ paddingTop: value, paddingBottom: value }),
 		size: (value: string | number) => ({ width: value, height: value }),
 		square: (value: string | number) => ({ width: value, height: value }),
-		// Section paddings helpers
 		sectionX: () => ({
 			paddingLeft: "4.44rem",
 			paddingRight: "4.44rem",
@@ -98,7 +94,6 @@ export const {
 	},
 });
 
-// Dark theme
 export const darkTheme = createTheme("dark-theme", {
 	colors: {
 		primary: "#AD4528",
@@ -112,7 +107,6 @@ export const darkTheme = createTheme("dark-theme", {
 		loContrast: "rgba(246, 236, 231, 0.75)",
 		border: "rgba(246, 236, 231, 0.18)",
 		focus: "#F6ECE7",
-		// Header specific (Dark mode)
 		headerBgDark: "#542918",
 		headerItemUnselectedDark: "#E7C19A",
 		headerItemSelectedDark: "#F1DFD2",
@@ -123,7 +117,6 @@ export const darkTheme = createTheme("dark-theme", {
 export const globalStyles = globalCss({
 	"*, *::before, *::after": { boxSizing: "border-box" },
 	html: {
-		// 1rem = 18px
 		fontSize: "112.5%",
 	},
 	body: {

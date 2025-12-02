@@ -102,12 +102,9 @@ const Footer: React.FC<FooterProps> = ({ className, style }) => {
             onClick={(event: React.MouseEvent<HTMLElement>) => {
               if (!isDevMode) return;
               const target = event.target as HTMLElement;
-              // Se o clique foi em um link ou em um elemento dentro de um link, não fazer nada
-              // (o link já tem seu próprio onClick que abre o modal)
               if (target.closest("a")) {
                 return;
               }
-              // Se o clique foi em um espaço vazio do container, abrir o modal
               navLinksInteraction.handleDevInteraction(event);
             }}
             style={{ cursor: navLinksInteraction.getCursor() }}
@@ -182,12 +179,9 @@ const Footer: React.FC<FooterProps> = ({ className, style }) => {
             onClick={(event: React.MouseEvent<HTMLDivElement>) => {
               if (!isDevMode) return;
               const target = event.target as HTMLElement;
-              // Se o clique foi em um link ou em um elemento dentro de um link, não fazer nada
-              // (o link já tem seu próprio onClick que abre o modal)
               if (target.closest("a")) {
                 return;
               }
-              // Se o clique foi em um espaço vazio do container, abrir o modal
               socialIconsInteraction.handleDevInteraction(event);
             }}
             style={{ cursor: socialIconsInteraction.getCursor() }}

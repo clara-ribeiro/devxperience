@@ -143,7 +143,7 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
     if (!enabled) return;
     const handleEscapeToDisable = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
-      if (activeMetadata) return; // modal aberta, apenas closeInteraction lida
+      if (activeMetadata) return;
       disableDevMode();
     };
     window.addEventListener("keydown", handleEscapeToDisable);
@@ -180,9 +180,8 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
     const rect = tooltip.elementRect;
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
-    const padding = 3; // Margem padrão de 3px ao redor do elemento
+    const padding = 3;
 
-    // Calcular posições com padding de 3px
     const topStart = Math.max(0, rect.top - padding);
     const leftStart = Math.max(0, rect.left - padding);
     const rightStart = Math.min(windowWidth, rect.right + padding);
@@ -190,7 +189,6 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
     return createPortal(
       <FocusOverlay>
-        {/* Top overlay */}
         {topStart > 0 && (
           <OverlaySection
             style={{
@@ -201,7 +199,6 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             }}
           />
         )}
-        {/* Right overlay */}
         {rightStart < windowWidth && (
           <OverlaySection
             style={{
@@ -212,7 +209,6 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             }}
           />
         )}
-        {/* Bottom overlay */}
         {bottomStart < windowHeight && (
           <OverlaySection
             style={{
@@ -223,7 +219,6 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
             }}
           />
         )}
-        {/* Left overlay */}
         {leftStart > 0 && (
           <OverlaySection
             style={{
@@ -243,19 +238,16 @@ export const DevModeProvider: React.FC<{ children: React.ReactNode }> = ({ child
     if (!isHydrated || !enabled || !tooltip || typeof document === "undefined") {
       return null;
     }
-    
-    // Calcular se o tooltip vai ser cortado na borda direita
-    // Estimativa: ~10px por caractere + padding
+
     const estimatedTooltipWidth = tooltip.text.length * 8 + 40;
     const windowWidth = window.innerWidth;
     const spaceOnRight = windowWidth - tooltip.x;
     const shouldFlip = spaceOnRight < estimatedTooltipWidth;
-    
-    // Se estiver próximo da borda direita, posicionar à esquerda do cursor
-    const transform = shouldFlip 
-      ? "translate(calc(-100% - 8px), -50%)" // À esquerda do cursor com margem
-      : "translate(10%, -20%)";  // À direita do cursor (padrão)
-    
+
+    const transform = shouldFlip
+      ? "translate(calc(-100% - 8px), -50%)"
+      : "translate(10%, -20%)";
+
     return createPortal(
       <TooltipContainer style={{ left: `${tooltip.x}px`, top: `${tooltip.y}px`, transform }} role="status">
         {tooltip.text}
