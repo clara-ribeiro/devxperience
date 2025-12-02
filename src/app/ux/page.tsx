@@ -1,11 +1,8 @@
-import ContentPageTemplate from "@/components/templates/ContentPageTemplate";
+import UXTemplate from "@/components/templates/UXTemplate";
 
 export default function UXPage() {
   return (
-    <ContentPageTemplate
-      title="UX"
-      description="Experiência do usuário para devs."
-    />
+    <UXTemplate />
   );
 }
 

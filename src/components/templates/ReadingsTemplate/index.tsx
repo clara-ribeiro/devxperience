@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { ReadingsHero, FilterOption } from "@/components/organisms/ReadingsHero";
 import { ReadingsGrid, ReadingItem } from "@/components/organisms/ReadingsGrid";
 
@@ -21,7 +22,15 @@ export const ReadingsTemplate: React.FC<ReadingsTemplateProps> = ({
   className,
   style,
 }) => {
-  const [activeFilter, setActiveFilter] = useState<string | undefined>();
+  const searchParams = useSearchParams();
+  const [activeFilter, setActiveFilter] = useState<string | undefined>(() => {
+    return searchParams.get("filter") ?? undefined;
+  });
+
+  useEffect(() => {
+    const paramFilter = searchParams.get("filter") ?? undefined;
+    setActiveFilter(paramFilter);
+  }, [searchParams]);
 
   const handleFilterChange = (value: string) => {
     setActiveFilter(activeFilter === value ? undefined : value);
