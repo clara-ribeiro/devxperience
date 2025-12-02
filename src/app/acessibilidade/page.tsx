@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import AccessibilityTemplate from "@/components/templates/AccessibilityTemplate";
 
 export const metadata: Metadata = {
-  title: "Acessibilidade na Prática | devXperience - Interfaces Inclusivas para Todos",
+  title: "Acessibilidade na Prática | devXperience - Acessibilidade Web para Devs",
   description:
-    "A web é para todos. Entenda como aplicar acessibilidade na prática em projetos front-end, indo além da conformidade e eliminando barreiras invisíveis no código.",
+    "Guia prático de Acessibilidade Web para desenvolvedores: foco em teclado, contraste, semântica HTML, leitores de tela e conformidade com WCAG 2.2, ABNT NBR 17225 e LBI.",
   keywords: [
     "Acessibilidade Web",
-    "WCAG",
+    "WCAG 2.2",
     "Inclusão Digital",
     "Desenvolvimento Front-end",
     "Lei Brasileira de Inclusão",
@@ -15,14 +15,18 @@ export const metadata: Metadata = {
     "WAI-ARIA",
     "Experiência do Usuário",
     "Usabilidade",
+    "Front-end Acessível",
+    "Leitores de Tela",
+    "Teclado",
+    "Contraste de Cores",
   ],
   authors: [{ name: "Clara Sousa" }],
   openGraph: {
     type: "website",
     url: "https://www.devxperience.com.br/acessibilidade",
-    title: "Acessibilidade na Prática | devXperience - Interfaces Inclusivas para Todos",
+    title: "Acessibilidade na Prática | devXperience - Acessibilidade Web para Devs",
     description:
-      "Guia prático para desenvolver interfaces acessíveis, com foco em teclado, contraste, semântica HTML e leitores de tela.",
+      "Aprenda a desenvolver interfaces realmente inclusivas, com foco em navegação por teclado, contraste, estrutura de headings, texto alternativo e leitores de tela, alinhado a WCAG 2.2 e ABNT NBR 17225.",
     siteName: "devXperience",
     images: [
       {
@@ -38,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Acessibilidade na Prática | devXperience",
     description:
-      "Aprenda a implementar acessibilidade digital de forma objetiva no front-end, apoiada em normas como WCAG e ABNT NBR 17225.",
+      "Acessibilidade Web para devs: exemplos de foco visível, contraste, semântica HTML e textos alternativos, com base em WCAG 2.2, ABNT NBR 17225 e Lei Brasileira de Inclusão.",
     images: ["https://www.devxperience.com.br/og-image.png"],
   },
   alternates: {
