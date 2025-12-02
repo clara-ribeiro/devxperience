@@ -3,4 +3,5 @@ export { ContentPageTemplate, type ContentPageTemplateProps } from "./ContentPag
 export { ReadingsTemplate, type ReadingsTemplateProps } from "./ReadingsTemplate";
 export { UXTemplate, type UXTemplateProps } from "./UXTemplate";
 export { AccessibilityTemplate, type AccessibilityTemplateProps } from "./AccessibilityTemplate";
+export { UsabilityTemplate, type UsabilityTemplateProps } from "./UsabilityTemplate";
 
