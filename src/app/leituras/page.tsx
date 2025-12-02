@@ -1,10 +1,8 @@
-"use client";
-
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ReadingsTemplate } from "@/components/templates/ReadingsTemplate";
-import { FilterOption } from "@/components/organisms/ReadingsHero";
-import { ReadingItem } from "@/components/organisms/ReadingsGrid";
+import type { FilterOption } from "@/components/organisms/ReadingsHero";
+import type { ReadingItem } from "@/components/organisms/ReadingsGrid";
 
 export const metadata: Metadata = {
   title: "Leituras Recomendadas | devXperience - UX, Usabilidade e Acessibilidade",

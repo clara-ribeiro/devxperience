@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Raleway, Josefin_Slab } from "next/font/google";
+import "./globals.css";
 import { globalStyles } from "@/styles/stitches.config";
 import { ThemeProvider } from "@/context/theme-context";
 import { DevModeProvider } from "@/context/dev-mode-context";
