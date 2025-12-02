@@ -79,6 +79,26 @@ export const HeroTitle = styled("h1", {
       textAlign: "left",
     },
   },
+  // Variante específica para a página de Acessibilidade:
+  // - Mobile: ambos spans com 3rem
+  // - Desktop: ambos spans com 5.89rem
+  "&[data-title-variant='accessibility']": {
+    fontSize: "3rem",
+    lineHeight: "3.5rem",
+    "& span:first-child, & span:last-child": {
+      fontSize: "3rem",
+      textAlign: "center",
+    },
+    "@lg": {
+      marginLeft: "22rem",
+      fontSize: "5.89rem",
+      lineHeight: "5.89rem",
+      "& span:first-child, & span:last-child": {
+        fontSize: "5.89rem",
+        textAlign: "left",
+      },
+    },
+  },
   [`.${darkTheme} &`]: {
     color: "#F1DFD2",
   },

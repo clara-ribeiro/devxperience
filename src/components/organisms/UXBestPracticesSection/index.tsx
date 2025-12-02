@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import { useDevMode } from "@/context/dev-mode-context";
-import { useDevModeInteraction } from "@/hooks/useDevModeInteraction";
 import { Section, ContentWrapper, Card, Title, Description, Separator, Checklist, ChecklistItem, Bullet } from "./styles";
 import { UX_BEST_PRACTICES_CHECKLIST_METADATA } from "./metadata";
+import { TopicChecklistSection } from "@/components/layout/topic-page/TopicChecklistSection";
 
 const checklistItems: string[] = [
   "O projeto está alinhado às necessidades reais? O desenvolvimento foi baseado em pesquisa contextual e testes com usuários reais, garantindo que as expectativas sejam atendidas?",
@@ -18,47 +17,18 @@ const checklistItems: string[] = [
 ];
 
 const UXBestPracticesSection: React.FC = () => {
-  const { isDevMode } = useDevMode();
-  const checklistInteraction = useDevModeInteraction(UX_BEST_PRACTICES_CHECKLIST_METADATA);
   return (
-    <Section aria-labelledby="ux-best-practices-heading">
-      <ContentWrapper>
-        <Card
-          data-devmode-highlight={isDevMode ? "true" : undefined}
-          data-devmode-target={UX_BEST_PRACTICES_CHECKLIST_METADATA.target}
-          onMouseEnter={(event: React.MouseEvent<HTMLElement>) => {
-            if (isDevMode) {
-              checklistInteraction.showMetadataTooltip(event.currentTarget as HTMLElement);
-            }
-          }}
-          onMouseLeave={() => {
-            if (isDevMode) {
-              checklistInteraction.hideMetadataTooltip();
-            }
-          }}
-          onClick={(event: React.MouseEvent<HTMLElement>) => {
-            if (isDevMode) {
-              checklistInteraction.handleDevInteraction(event);
-            }
-          }}
-          style={{ cursor: checklistInteraction.getCursor() }}
-        >
-          <Title id="ux-best-practices-heading">Boas práticas</Title>
-          <Description>
-            Use este checklist para se guiar no desenvolvimento de software priorizando a experiência do usuário.
-          </Description>
-          <Separator />
-          <Checklist>
-            {checklistItems.map((item, index) => (
-              <ChecklistItem key={index}>
-                <Bullet aria-hidden="true" />
-                <span>{item}</span>
-              </ChecklistItem>
-            ))}
-          </Checklist>
-        </Card>
-      </ContentWrapper>
-    </Section>
+    <TopicChecklistSection
+      headingId="ux-best-practices-heading"
+      title="Boas práticas"
+      description={
+        <>
+          Use este checklist para se guiar no desenvolvimento de software priorizando a experiência do usuário.
+        </>
+      }
+      checklistItems={checklistItems}
+      checklistMetadata={UX_BEST_PRACTICES_CHECKLIST_METADATA}
+    />
   );
 };
 
