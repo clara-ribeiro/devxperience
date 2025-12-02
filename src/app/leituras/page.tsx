@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { ReadingsTemplate } from "@/components/templates/ReadingsTemplate";
 import { FilterOption } from "@/components/organisms/ReadingsHero";
 import { ReadingItem } from "@/components/organisms/ReadingsGrid";
@@ -280,15 +281,17 @@ const allReadings: ReadingItem[] = readingsData.map((reading) => ({
 
 export default function LeiturasPage() {
   return (
-    <ReadingsTemplate
-      hero={{
-        title: "Leituras recomendadas",
-        description:
-          "Uma curadoria de livros, artigos e recursos feita para quem quer criar experiências digitais mais humanas, acessíveis e bem pensadas.",
-        filters: filterOptions,
-      }}
-      readings={allReadings}
-    />
+    <Suspense fallback={<div>Carregando...</div>}>
+      <ReadingsTemplate
+        hero={{
+          title: "Leituras recomendadas",
+          description:
+            "Uma curadoria de livros, artigos e recursos feita para quem quer criar experiências digitais mais humanas, acessíveis e bem pensadas.",
+          filters: filterOptions,
+        }}
+        readings={allReadings}
+      />
+    </Suspense>
   );
 }
 
