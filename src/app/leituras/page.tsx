@@ -1,9 +1,65 @@
 "use client";
 
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ReadingsTemplate } from "@/components/templates/ReadingsTemplate";
 import { FilterOption } from "@/components/organisms/ReadingsHero";
 import { ReadingItem } from "@/components/organisms/ReadingsGrid";
+
+export const metadata: Metadata = {
+  title: "Leituras Recomendadas | devXperience - UX, Usabilidade e Acessibilidade",
+  description:
+    "Curadoria de livros, artigos e recursos técnicos sobre Experiência do Usuário, Usabilidade e Acessibilidade Web, selecionados a partir da bibliografia do TCC devXperience.",
+  keywords: [
+    "Leituras UX",
+    "Referências de Usabilidade",
+    "Acessibilidade Web",
+    "Experiência do Usuário",
+    "UX para Desenvolvedores",
+    "Usabilidade para Devs",
+    "Bibliografia UX",
+    "Design Centrado no Usuário",
+  ],
+  authors: [{ name: "Clara Sousa" }],
+  openGraph: {
+    type: "website",
+    url: "https://www.devxperience.com.br/leituras",
+    title: "Leituras Recomendadas | devXperience",
+    description:
+      "Uma curadoria de livros, artigos e recursos para quem quer aprofundar UX, Usabilidade e Acessibilidade Web com base em referências acadêmicas e técnicas.",
+    siteName: "devXperience",
+    images: [
+      {
+        url: "https://www.devxperience.com.br/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Leituras Recomendadas - devXperience",
+      },
+    ],
+    locale: "pt_BR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leituras Recomendadas | devXperience",
+    description:
+      "Seleção de conteúdos essenciais sobre UX, Usabilidade e Acessibilidade Web para desenvolvedores.",
+    images: ["https://www.devxperience.com.br/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://www.devxperience.com.br/leituras",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
 
 // Dados para a seção de Leituras Recomendadas
 // Curadoria feita a partir da bibliografia do TCC
