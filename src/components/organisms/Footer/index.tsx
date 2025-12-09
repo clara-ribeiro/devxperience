@@ -302,7 +302,7 @@ const Footer: React.FC<FooterProps> = ({ className, style }) => {
               }
             }}
           >
-            Projeto desenvolvido por Clara Sousa como TCC em Engenharia de Software (UnB) Artes em parceria com Celina Ariela Oliveira Balz
+            Projeto desenvolvido por Clara Sousa como TCC em Engenharia de Software (UnB). Artes em parceria com Celina Ariela Oliveira Balz
           </p>
           <p
             onClick={(event: React.MouseEvent<HTMLParagraphElement>) => {

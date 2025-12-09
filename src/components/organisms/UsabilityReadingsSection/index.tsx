@@ -33,15 +33,6 @@ const UsabilityReadingsSection: React.FC = () => {
           linkHref: "https://sensible.com/dont-make-me-think/",
           linkLabel: "Ver livro",
         },
-        {
-          category: "Usabilidade",
-          title: "Handbook of Usability Testing",
-          author: "Rubin & Chisnell",
-          description:
-            "Como planejar e executar testes com usuários para medir eficácia, eficiência e satisfação.",
-          linkHref: "https://www.wiley.com/en-us/Handbook+of+Usability+Testing%3A+How+to+Plan%2C+Design%2C+and+Conduct+Effective+Tests%2C+2nd+Edition-p-9780470185483",
-          linkLabel: "Ver livro",
-        },
       ]}
       sectionTitleMetadata={USAB_READINGS_SECTION_TITLE_METADATA}
       cardsGroupMetadata={UX_READINGS_TITLES_SUMMARIES_METADATA}

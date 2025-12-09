@@ -7,6 +7,8 @@ export const StyledCardContent = styled("div", {
   flexDirection: "column",
   gap: "$md",
   flex: 1,
+  minWidth: 0,
+  width: "100%",
 });
 
 export const StyledCardTag = styled("div", {
@@ -15,6 +17,11 @@ export const StyledCardTag = styled("div", {
   position: "relative",
   zIndex: 1,
   maxWidth: "100%",
+  width: "100%",
+  boxSizing: "border-box",
+  minWidth: 0,
+  display: "flex",
+  justifyContent: "center",
 });
 
 export const StyledCardTitle = styled("h3", {
@@ -24,6 +31,9 @@ export const StyledCardTitle = styled("h3", {
   color: "#F1DFD2",
   margin: 0,
   lineHeight: 1.3,
+  wordBreak: "break-word",
+  overflowWrap: "break-word",
+  minWidth: 0,
   
   [`.${darkTheme} &`]: {
     color: "#F1DFD2",
@@ -36,6 +46,9 @@ export const StyledCardAuthor = styled("p", {
   color: "#E7C19A",
   margin: 0,
   fontStyle: "italic",
+  wordBreak: "break-word",
+  overflowWrap: "break-word",
+  minWidth: 0,
   
   [`.${darkTheme} &`]: {
     color: "#E7C19A",
@@ -49,6 +62,9 @@ export const StyledCardDescription = styled("p", {
   margin: 0,
   lineHeight: 1.6,
   flex: 1,
+  wordBreak: "break-word",
+  overflowWrap: "break-word",
+  minWidth: 0,
   
   [`.${darkTheme} &`]: {
     color: "#F1DFD2",
@@ -67,6 +83,10 @@ const baseLinkStyles = {
   textUnderlineOffset: "0.22rem",
   alignSelf: "flex-start",
   transition: "opacity 150ms ease",
+  wordBreak: "break-word",
+  overflowWrap: "break-word",
+  minWidth: 0,
+  maxWidth: "100%",
   
   "&:hover": {
     opacity: 0.8,

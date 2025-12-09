@@ -5,7 +5,7 @@ export const StyledReadingCard = styled("div", {
   display: "flex",
   flexDirection: "column",
   gap: "$lg",
-  padding: "$2xl",
+  padding: "$xl",
   backgroundColor: "#261D1D",
   border: "0.11rem solid #F6ECE7",
   borderRadius: "$md",
@@ -14,6 +14,15 @@ export const StyledReadingCard = styled("div", {
   textDecoration: "none",
   cursor: "pointer",
   minHeight: "20rem",
+  width: "100%",
+  boxSizing: "border-box",
+  minWidth: 0,
+  overflow: "hidden",
+  
+  "@md": {
+    padding: "$2xl",
+    maxWidth: "none",
+  },
   
   "&:hover": {
     transform: "translateY(-0.22rem)",

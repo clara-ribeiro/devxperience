@@ -5,6 +5,10 @@ export const StyledSection = styled("section", {
   paddingTop: "3.56rem",
   paddingBottom: "4.44rem",
   backgroundColor: "#C28166",
+  overflowX: "hidden",
+  width: "100%",
+  maxWidth: "100vw",
+  boxSizing: "border-box",
   
   "@md": {
     paddingTop: "4.44rem",
@@ -23,10 +27,14 @@ export const StyledSection = styled("section", {
 export const StyledGrid = styled("div", {
   display: "grid",
   gridTemplateColumns: "1fr",
-  gap: "$2xl",
+  gap: "$xl",
+  width: "100%",
+  boxSizing: "border-box",
+  minWidth: 0,
   
   "@md": {
     gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "$2xl",
   },
 });
 

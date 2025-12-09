@@ -91,11 +91,13 @@ export const StyledTextContent = styled("div", {
 
 export const StyledTitle = styled("h1", {
   fontFamily: "$heading",
-  fontSize: "$h1",
+  fontSize: "$h2",
   fontWeight: 700,
   color: "#261D1D",
   margin: 0,
   lineHeight: 1.2,
+  wordBreak: "break-word",
+  overflowWrap: "break-word",
 
   "@md": {
     fontSize: "3.8rem",

@@ -33,15 +33,6 @@ const AccessibilityReadingsSection: React.FC = () => {
           linkHref: "https://www.abnt.org.br/",
           linkLabel: "Ver detalhes da norma",
         },
-        {
-          category: "Acessibilidade",
-          title: "Inclusive Components",
-          author: "Heydon Pickering",
-          description:
-            "Guia prático de como codificar componentes comuns de forma acessível e robusta, com foco em HTML, CSS e JavaScript.",
-          linkHref: "https://inclusive-components.design/",
-          linkLabel: "Ver livro/site",
-        },
       ]}
       sectionTitleMetadata={A11Y_READINGS_SECTION_TITLE_METADATA}
       cardsGroupMetadata={UX_READINGS_TITLES_SUMMARIES_METADATA}

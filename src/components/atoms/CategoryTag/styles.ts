@@ -13,6 +13,10 @@ export const StyledCategoryTag = styled("span", {
   color: "#261D1D",
   borderRadius: "9999px",
   lineHeight: 1.2,
+  maxWidth: "100%",
+  boxSizing: "border-box",
+  wordBreak: "break-word",
+  overflowWrap: "break-word",
   
   [`.${darkTheme} &`]: {
     backgroundColor: "#F6ECE7",
