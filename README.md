@@ -90,9 +90,7 @@ Parte do conteúdo do projeto é mantida junto ao código, especialmente em arqu
 ## Deploy
 
 - **Aplicação (produção)**: `https://www.devxperience.com.br`
-- **Storybook (deploy)**:
-  - Se publicado via **Chromatic**, o link de preview geralmente aparece nos checks do Pull Request.
-  - Se publicado como **build estático**, hospede o diretório `storybook-static/` (Vercel, Netlify, GitHub Pages, etc.) e atualize este README com a URL final.
+- **Storybook (deploy)**: `https://storybook.devxperience.com.br/`
 
 ## Como contribuir
 
